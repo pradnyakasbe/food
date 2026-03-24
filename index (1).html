@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HealthyVibes</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Caveat:wght@600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f7f7f5;
+      color: #111;
+      line-height: 1.4;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .container { width: min(1200px, calc(100% - 40px)); margin: 0 auto; }
+
+    .navbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+      gap: 18px;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+    .logo .healthy { color: #79b432; }
+    .logo .vibes { color: #f28b25; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      justify-content: center;
+      flex: 1;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn {
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: 0.2s ease;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn-outline {
+      background: #fff;
+      border: 2px solid #f6ac08;
+      color: #111;
+      padding: 11px 18px;
+      font-size: 0.95rem;
+    }
+    .btn-signup {
+      background: #f6ac08;
+      color: #111;
+      padding: 12px 24px;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.05fr 1fr;
+      gap: 34px;
+      align-items: start;
+      margin-top: 10px;
+    }
+    .hero-left h1 {
+      font-size: clamp(3.1rem, 7vw, 5.8rem);
+      line-height: 0.95;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+    .hero-left h1 .green { color: #6fd14d; }
+    .hero-left h1 .script {
+      color: #f5a307;
+      font-family: 'Caveat', cursive;
+      font-size: 0.7em;
+      font-weight: 600;
+      display: inline-block;
+      transform: rotate(-8deg) translateY(-6px);
+      margin-left: 6px;
+    }
+    .hero-left p {
+      max-width: 650px;
+      font-size: 1.1rem;
+      color: #303030;
+      margin-bottom: 26px;
+    }
+    .search-bar {
+      display: flex;
+      align-items: center;
+      border: 3px solid #666;
+      border-radius: 999px;
+      padding: 10px 12px 10px 24px;
+      background: white;
+      margin-bottom: 26px;
+    }
+    .search-bar input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 1rem;
+      font-family: inherit;
+      color: #444;
+      background: transparent;
+    }
+    .search-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #f6ac08;
+      font-size: 1.2rem;
+    }
+
+    .calorie-card {
+      background: #f6ac08;
+      border-radius: 52px;
+      padding: 30px 30px 22px;
+      position: relative;
+    }
+    .calorie-card h2 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+    }
+    .meal-list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      align-items: end;
+    }
+    .meal-item {
+      text-align: center;
+      font-weight: 600;
+    }
+    .meal-item img {
+      width: 100px; height: 100px; object-fit: cover;
+      border-radius: 50%;
+      margin: 0 auto 12px;
+      border: 8px solid rgba(255,255,255,0.35);
+    }
+    .meal-item small { display: block; margin-top: 6px; font-size: 1rem; }
+    .meal-featured {
+      background: #595959;
+      color: white;
+      border-radius: 36px;
+      padding: 18px 12px;
+    }
+    .meal-featured p { font-size: 0.9rem; margin-top: 8px; line-height: 1.45; }
+
+    .hero-right {
+      display: grid;
+      gap: 22px;
+    }
+    .promo-card, .rating-card {
+      position: relative;
+      min-height: 320px;
+      border-radius: 70px;
+      overflow: hidden;
+      color: white;
+      display: flex;
+      align-items: end;
+      padding: 30px;
+      background-size: cover;
+      background-position: center;
+    }
+    .promo-card::before, .rating-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.58), rgba(0,0,0,0.15));
+    }
+    .promo-card > div, .rating-card > div { position: relative; z-index: 1; }
+    .promo-card {
+      background-image: url('https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80');
+    }
+    .rating-card {
+      min-height: 250px;
+      background-image: url('https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80');
+    }
+    .promo-card h2 {
+      font-size: clamp(2.1rem, 4vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.05;
+      margin-bottom: 12px;
+      max-width: 520px;
+    }
+    .promo-card p, .rating-card p {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+    .discover-btn {
+      position: absolute;
+      right: 28px;
+      bottom: 150px;
+      z-index: 2;
+      background: rgba(255,255,255,0.82);
+      color: black;
+      border-radius: 999px;
+      padding: 10px 16px 10px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+    }
+    .discover-btn span:last-child {
+      width: 42px; height: 42px; border-radius: 50%;
+      background: rgba(0,0,0,0.85); color: white;
+      display: grid; place-items: center;
+      font-size: 1.3rem;
+    }
+    .rating-card h3 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.05;
+      max-width: 560px;
+    }
+
+    section { padding: 70px 0; }
+    .section-title {
+      text-align: center;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 800;
+      margin-bottom: 44px;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 34px;
+    }
+    .menu-card {
+      background: #f6ac08;
+      border-radius: 54px;
+      padding: 34px 26px;
+      text-align: center;
+    }
+    .menu-card h3 {
+      color: white;
+      font-size: 2rem;
+      margin-bottom: 24px;
+    }
+    .menu-item { margin-bottom: 18px; }
+    .menu-item .type {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .veg { color: #7ca03a; }
+    .nonveg { color: #b14a3f; }
+    .menu-item p {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.25;
+    }
+
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 60px;
+      margin-top: 10px;
+      margin-bottom: 26px;
+    }
+    .package-card {
+      background: #ece9cf;
+      border-radius: 54px;
+      padding: 46px 40px 34px;
+      color: #7a9f34;
+    }
+    .package-card h3 {
+      font-size: clamp(3rem, 5vw, 5rem);
+      text-align: center;
+      margin-bottom: 18px;
+      font-weight: 800;
+    }
+    .package-card ul {
+      padding-left: 24px;
+      font-size: 1rem;
+      line-height: 1.45;
+      margin-bottom: 26px;
+    }
+    .buy-btn {
+      display: block;
+      margin: 0 auto;
+      background: #7a9f34;
+      color: white;
+      border-radius: 999px;
+      padding: 16px 36px;
+      font-size: 1.05rem;
+      font-weight: 600;
+      width: fit-content;
+    }
+    .footer-note {
+      font-size: clamp(1.9rem, 3.6vw, 3.3rem);
+      font-weight: 700;
+      line-height: 1.12;
+      color: #4d4d4d;
+      max-width: 1120px;
+      margin: 24px auto 0;
+    }
+
+    @media (max-width: 1100px) {
+      .hero, .packages-grid, .menu-grid { grid-template-columns: 1fr; }
+      .meal-list { grid-template-columns: repeat(2, 1fr); }
+      .discover-btn { position: static; margin-top: 18px; width: fit-content; }
+      .navbar { flex-wrap: wrap; }
+      .nav-links { order: 3; width: 100%; justify-content: center; }
+    }
+    @media (max-width: 700px) {
+      .container { width: min(100% - 24px, 1200px); }
+      .navbar { align-items: flex-start; }
+      .nav-links { gap: 16px; font-size: 0.85rem; flex-wrap: wrap; }
+      .nav-actions { width: 100%; justify-content: flex-end; }
+      .meal-list { grid-template-columns: 1fr; }
+      .promo-card, .rating-card, .calorie-card, .menu-card, .package-card { border-radius: 30px; }
+      .promo-card, .rating-card { min-height: 260px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container navbar">
+    <div class="logo"><span class="healthy">HEALTHY</span> <span class="vibes">VIBES</span></div>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#menu">Today’s Menu</a>
+      <a href="#packages">Packages</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="btn btn-outline">Create New User</button>
+      <button class="btn btn-signup">Sign Up</button>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="home">
+      <div class="hero-left">
+        <h1><span class="green">Fresh</span> Meals<br>Cooked <span class="script">with</span><br>Love</h1>
+        <p>Get guilt free healthy meals delivered to your doorstep, meals with interesting taste are curated for your body to have the optimal nutrition.</p>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Get your favourite meals here">
+          <button class="btn search-btn">🔍</button>
+        </div>
+
+        <div class="calorie-card">
+          <h2>Calorie breakdown by meal</h2>
+          <div class="meal-list">
+            <div class="meal-item">
+              <img src="https://images.unsplash.com/photo-1512058564366-18510be2db19?auto=format&fit=crop&w=400&q=80" alt="Dinner">
+              Dinner
+              <small>★535</small>
+            </div>
+            <div class="meal-item meal-featured">
+              <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=400&q=80" alt="Brunch">
+              Brunch
+              <small>★450</small>
+              <p>Calories<br>Fat - 30gm<br>Protein - 50gm<br>Carbs - 200gm</p>
+            </div>
+            <div class="meal-item">
+              <img src="https://images.unsplash.com/photo-1511690743698-d9d85f2fbf38?auto=format&fit=crop&w=400&q=80" alt="Breakfast">
+              Breakfast
+              <small>★634</small>
+            </div>
+            <div class="meal-item">
+              <img src="https://images.unsplash.com/photo-1543332164-6e82f355badc?auto=format&fit=crop&w=400&q=80" alt="Lunch">
+              Lunch
+              <small>★634</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <div class="promo-card">
+          <button class="btn discover-btn"><span>Discover More</span><span>↗</span></button>
+          <div>
+            <h2>EXPLORE MONTHLY PACKAGES</h2>
+            <p>Nourish, Energize, and Thrive</p>
+          </div>
+        </div>
+
+        <div class="rating-card">
+          <div>
+            <h3>4,500+ Ratings<br>1000+ active customers</h3>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu">
+      <h2 class="section-title">Today’s Menu</h2>
+      <div class="menu-grid">
+        <div class="menu-card">
+          <h3>Breakfast</h3>
+          <div class="menu-item"><span class="type veg">🥬 VEG</span><p>High Protein Muesli</p></div>
+          <div class="menu-item"><span class="type nonveg">🍗 NON-VEG</span><p>High Protein Chicken Salad</p></div>
+        </div>
+        <div class="menu-card">
+          <h3>Brunch</h3>
+          <div class="menu-item"><span class="type veg">🥬 VEG</span><p>High Protein Muesli</p></div>
+          <div class="menu-item"><span class="type nonveg">🍗 NON-VEG</span><p>High Protein Chicken Salad</p></div>
+        </div>
+        <div class="menu-card">
+          <h3>Lunch</h3>
+          <div class="menu-item"><span class="type veg">🥬 VEG</span><p>High Protein Muesli</p></div>
+          <div class="menu-item"><span class="type nonveg">🍗 NON-VEG</span><p>High Protein Chicken Salad</p></div>
+        </div>
+        <div class="menu-card">
+          <h3>Dinner</h3>
+          <div class="menu-item"><span class="type veg">🥬 VEG</span><p>High Protein Muesli</p></div>
+          <div class="menu-item"><span class="type nonveg">🍗 NON-VEG</span><p>High Protein Chicken Salad</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="packages">
+      <h2 class="section-title">Packages</h2>
+      <div class="packages-grid">
+        <div class="package-card">
+          <h3>VEG</h3>
+          <ul>
+            <li>Flame-Grilled Paneer Breast (Lean Protein)</li>
+            <li>Steamed Seasonal Vegetables (Fiber-Rich)</li>
+            <li>Brown Rice & Multigrain Roti (Complex Carbohydrates)</li>
+            <li>Fresh Garden Salad (Micro-Nutrients)</li>
+            <li>Probiotic Greek Yogurt (Healthy Fats/Dairy)</li>
+            <li>Price: 9500/- Monthly Subscription</li>
+            <li>Included Meals: Breakfast + Lunch + Dinner</li>
+            <li>Nutrition: 40-50 Gm Protein Per Meal</li>
+          </ul>
+          <a href="#" class="buy-btn">BUY NOW</a>
+        </div>
+
+        <div class="package-card">
+          <h3>NONVEG</h3>
+          <ul>
+            <li>Flame-Grilled Chicken Breast (Lean Protein)</li>
+            <li>Steamed Seasonal Vegetables (Fiber-Rich)</li>
+            <li>Brown Rice & Multigrain Roti (Complex Carbohydrates)</li>
+            <li>Fresh Garden Salad (Micro-Nutrients)</li>
+            <li>Probiotic Greek Yogurt (Healthy Fats/Dairy)</li>
+            <li>Price: 9500/- Monthly Subscription</li>
+            <li>Included Meals: Breakfast + Lunch + Dinner</li>
+            <li>Nutrition: 50-60 Gm Protein Per Meal</li>
+          </ul>
+          <a href="#" class="buy-btn">BUY NOW</a>
+        </div>
+      </div>
+
+      <p class="footer-note">Commitment is a big step, so let's start with a blind date. Your first meal of the monthly subscription is on the house—no strings, just wings (or paneer).</p>
+    </section>
+  </main>
+</body>
+</html>

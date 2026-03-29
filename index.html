@@ -4,78 +4,67 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HealthyVibes – Fresh Meals Cooked with Love</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,700&family=Nunito:wght@400;600;700;800&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,700;0,800;0,900;1,700&family=Dancing+Script:wght@700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{
-  --yellow:#F5A800; --yellow-glow:rgba(245,168,0,.35);
-  --green:#4A7A00;  --green-light:#6FAF00; --green-glow:rgba(111,175,0,.3);
-  --dark:#1A1A1A;   --cream:#FAFAF2; --gray-bg:#3D3D3D;
-  --white:#fff;
+  --yellow:#F5A800; --yglow:rgba(245,168,0,.35);
+  --green:#4A7C00;  --glight:#72B200; --gglow:rgba(114,178,0,.28);
+  --dark:#1A1A1A;   --cream:#FAFAF2;  --gray:#3D3D3D;
 }
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:'Nunito',sans-serif;background:#fff;color:var(--dark);overflow-x:hidden;}
 
-/* ══════════════════════════════
-   FLOATING PRODUCE PARTICLES
-══════════════════════════════ */
+/* ════════════════════════════════════════
+   🌿 FLOATING PRODUCE PARTICLES (BG)
+════════════════════════════════════════ */
 #particles{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden;}
-.particle{
-  position:absolute;opacity:0;
-  animation:floatUp linear infinite;
-  will-change:transform,opacity;
-  user-select:none;
-}
+.pt{position:absolute;opacity:0;will-change:transform,opacity;user-select:none;font-size:1.3rem;
+  animation:floatUp linear infinite;}
 @keyframes floatUp{
-  0%  {opacity:0;  transform:translateY(110vh) rotate(0deg) scale(.6);}
-  8%  {opacity:.16;}
-  88% {opacity:.13;}
-  100%{opacity:0;  transform:translateY(-10vh) rotate(380deg) scale(1.1);}
+  0%  {opacity:0;  transform:translateY(105vh) rotate(0deg) scale(.5);}
+  6%  {opacity:.14;}
+  90% {opacity:.1;}
+  100%{opacity:0;  transform:translateY(-8vh) rotate(400deg) scale(1.15);}
 }
 
-/* ══════════════════════════════
-   LEAF CURSOR TRAIL
-══════════════════════════════ */
-.leaf-trail{
-  position:fixed;pointer-events:none;z-index:9999;
-  font-size:1rem;line-height:1;
-  animation:leafFade .75s ease forwards;
-}
+/* ════════════════════════════════════════
+   🍃 LEAF CURSOR TRAIL
+════════════════════════════════════════ */
+.leaf{position:fixed;pointer-events:none;z-index:9999;font-size:.95rem;
+  animation:leafFade .7s ease forwards;}
 @keyframes leafFade{
-  0%  {opacity:.9;transform:translateY(0) rotate(0) scale(1);}
-  100%{opacity:0; transform:translateY(-30px) rotate(50deg) scale(.3);}
+  0%  {opacity:.85;transform:translateY(0) rotate(0) scale(1.1);}
+  100%{opacity:0;  transform:translateY(-32px) rotate(60deg) scale(.2);}
 }
 
-/* ══════════════════════════════
+/* ════════════════════════════════════════
+   🟢 PROGRESS BAR (page transition)
+════════════════════════════════════════ */
+#pbar{position:fixed;top:0;left:0;height:3px;width:0%;z-index:9999;
+  background:linear-gradient(90deg,var(--glight),var(--yellow));
+  transition:width .4s ease;border-radius:0 3px 3px 0;}
+
+/* ════════════════════════════════════════
    NAV
-══════════════════════════════ */
-nav{
-  display:flex;align-items:center;justify-content:space-between;
+════════════════════════════════════════ */
+nav{display:flex;align-items:center;justify-content:space-between;
   padding:16px 60px;position:sticky;top:0;z-index:300;
-  background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
-  box-shadow:0 2px 24px rgba(0,0,0,.07);
-  animation:navDrop .7s cubic-bezier(.22,1,.36,1) both;
-}
+  background:rgba(255,255,255,.94);backdrop-filter:blur(16px);
+  box-shadow:0 2px 26px rgba(0,0,0,.07);
+  animation:navDrop .7s cubic-bezier(.22,1,.36,1) both;}
 @keyframes navDrop{from{transform:translateY(-80px);opacity:0}to{transform:translateY(0);opacity:1}}
 
-.logo{
-  font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.3rem;
-  letter-spacing:1.5px;cursor:pointer;transition:transform .2s;
-}
-.logo:hover{transform:scale(1.05);}
-.logo .l1{color:var(--green);}
-.logo .l2{color:var(--yellow);}
+.logo{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.3rem;
+  letter-spacing:1.5px;cursor:pointer;transition:transform .22s;}
+.logo:hover{transform:scale(1.06);}
+.logo .l1{color:var(--green);} .logo .l2{color:var(--yellow);}
 
 .nav-links{display:flex;gap:36px;list-style:none;}
-.nav-links a{
-  text-decoration:none;color:var(--dark);font-weight:600;font-size:.97rem;cursor:pointer;
-  position:relative;transition:color .2s;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-3px;left:50%;width:0;height:2.5px;
-  background:var(--green-light);border-radius:2px;
-  transition:width .25s,left .25s;
-}
+.nav-links a{text-decoration:none;color:var(--dark);font-weight:600;font-size:.97rem;
+  cursor:pointer;position:relative;transition:color .2s;}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:50%;width:0;height:2.5px;
+  background:var(--glight);border-radius:2px;transition:width .25s,left .25s;}
 .nav-links a:hover{color:var(--green);}
 .nav-links a:hover::after{width:100%;left:0;}
 
@@ -84,442 +73,645 @@ nav{
   animation:popIn .45s cubic-bezier(.34,1.56,.64,1);}
 @keyframes popIn{from{transform:scale(0);opacity:0}to{transform:scale(1);opacity:1}}
 
-.btn-signup{
-  background:var(--yellow);color:#fff;border:none;padding:10px 22px;
+.btn-signup{background:var(--yellow);color:#fff;border:none;padding:10px 22px;
   border-radius:50px;font-weight:700;font-size:.95rem;cursor:pointer;
-  font-family:'Nunito',sans-serif;
-  transition:background .2s,transform .15s,box-shadow .2s;
-}
-.btn-signup:hover{
-  background:#d48f00;transform:translateY(-2px);
-  box-shadow:0 6px 20px var(--yellow-glow);
-}
-.user-icon{
-  width:38px;height:38px;border-radius:50%;background:var(--dark);
+  font-family:'Nunito',sans-serif;transition:background .2s,transform .15s,box-shadow .2s;}
+.btn-signup:hover{background:#d48f00;transform:translateY(-2px);box-shadow:0 6px 20px var(--yglow);}
+.user-icon{width:38px;height:38px;border-radius:50%;background:var(--dark);
   display:flex;align-items:center;justify-content:center;cursor:pointer;
-  transition:transform .2s,box-shadow .2s;
-}
+  transition:transform .2s,box-shadow .2s;}
 .user-icon:hover{transform:scale(1.1);box-shadow:0 4px 14px rgba(0,0,0,.25);}
 .user-icon svg{fill:#fff;width:20px;height:20px;}
 
-/* ══════════════════════════════
+/* ════════════════════════════════════════
    PAGES
-══════════════════════════════ */
+════════════════════════════════════════ */
 .page{display:none;position:relative;z-index:1;}
 .page.active{display:block;}
-.page-enter{animation:pageReveal .55s cubic-bezier(.22,1,.36,1) both;}
-@keyframes pageReveal{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.page-enter{animation:pageReveal .5s cubic-bezier(.22,1,.36,1) both;}
+@keyframes pageReveal{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
 
-/* ══════════════════════════════
-   HOME  — HERO
-══════════════════════════════ */
-#home{padding:48px 60px 70px;}
+/* ════════════════════════════════════════
+   HOME – HERO LEFT
+════════════════════════════════════════ */
+#home{padding:0;}
+.home-inner{padding:48px 60px 70px;position:relative;}
 .home-grid{display:grid;grid-template-columns:1fr 1fr;gap:44px;align-items:start;}
+.hero-left{position:relative;}
 
-/* ── Montserrat hero title ── */
-.hero-left h1{
+/* ── MONTSERRAT HERO TITLE ── */
+.hero-h1{
   font-family:'Montserrat',sans-serif;
-  font-size:3.85rem;line-height:1.08;font-weight:900;
-  opacity:0;
-  animation:heroIn .95s cubic-bezier(.22,1,.36,1) .15s both;
+  font-size:3.9rem;line-height:1.07;font-weight:900;
+  opacity:0;animation:heroSlide .9s cubic-bezier(.22,1,.36,1) .1s both;
 }
-@keyframes heroIn{
-  from{opacity:0;transform:translateY(48px) skewY(3deg);}
+@keyframes heroSlide{
+  from{opacity:0;transform:translateY(52px) skewY(2.5deg);}
   to  {opacity:1;transform:translateY(0) skewY(0);}
 }
-.hero-left h1 .word-fresh{
-  color:var(--green-light);display:inline-block;
-  animation:freshPop 1.1s cubic-bezier(.34,1.56,.64,1) .42s both;
+.word-fresh{
+  color:var(--glight);display:inline-block;
+  animation:freshPop 1s cubic-bezier(.34,1.56,.64,1) .42s both;
 }
 @keyframes freshPop{
-  from{opacity:0;transform:scale(.6) rotate(-6deg);}
+  from{opacity:0;transform:scale(.55) rotate(-8deg);}
   to  {opacity:1;transform:scale(1) rotate(0);}
 }
-/* "with" in Dancing Script cursive for the handwritten touch */
-.hero-left h1 .word-with{
+/* "with" – Dancing Script for the handwritten warmth */
+.word-with{
   font-family:'Dancing Script',cursive;font-weight:700;
-  color:var(--yellow);font-size:3.5rem;display:inline-block;
-  animation:scriptSlide .9s ease .7s both;
+  color:var(--yellow);font-size:3.6rem;display:inline-block;
+  animation:withSlide .85s ease .68s both;
 }
-@keyframes scriptSlide{
-  from{opacity:0;transform:translateX(-24px) rotate(-3deg);}
+@keyframes withSlide{
+  from{opacity:0;transform:translateX(-22px) rotate(-4deg);}
   to  {opacity:1;transform:translateX(0) rotate(0);}
 }
 
-.hero-tagline{
-  color:#555;font-size:1rem;line-height:1.7;margin:22px 0 30px;max-width:480px;
-  opacity:0;animation:fadeUp .8s ease .85s both;
-}
+.hero-tagline{color:#555;font-size:1rem;line-height:1.7;margin:22px 0 30px;max-width:480px;
+  opacity:0;animation:fadeUp .8s ease .88s both;}
 @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 
 /* ── SEARCH ── */
-.search-wrap{
-  position:relative;max-width:480px;
-  opacity:0;animation:fadeUp .8s ease 1.05s both;
-}
-.search-bar{
-  display:flex;align-items:center;border:1.5px solid #e0e0e0;border-radius:50px;
+.search-wrap{position:relative;max-width:480px;
+  opacity:0;animation:fadeUp .8s ease 1.08s both;
+  z-index:200;}
+.search-bar{display:flex;align-items:center;border:1.5px solid #e0e0e0;border-radius:50px;
   padding:10px 10px 10px 22px;background:#fff;
-  box-shadow:0 4px 22px rgba(0,0,0,.07);
-  transition:box-shadow .25s,border-color .25s;
-}
-.search-bar:focus-within{
-  border-color:var(--yellow);
-  box-shadow:0 4px 28px var(--yellow-glow);
-}
+  box-shadow:0 4px 22px rgba(0,0,0,.07);transition:box-shadow .25s,border-color .25s;}
+.search-bar:focus-within{border-color:var(--yellow);box-shadow:0 4px 28px var(--yglow);}
 .search-bar input{flex:1;border:none;outline:none;font-size:.95rem;font-family:'Nunito',sans-serif;}
-.search-btn{
-  width:42px;height:42px;border-radius:50%;background:var(--yellow);border:none;
+.search-btn{width:42px;height:42px;border-radius:50%;background:var(--yellow);border:none;
   cursor:pointer;display:flex;align-items:center;justify-content:center;
-  transition:transform .15s,background .2s;
-}
-.search-btn:hover{background:#d48f00;transform:scale(1.09);}
+  transition:transform .15s,background .2s;}
+.search-btn:hover{background:#d48f00;transform:scale(1.1);}
 .search-btn svg{fill:#fff;width:18px;height:18px;}
-
-.search-dropdown{
-  display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;
-  background:#fff;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.14);
-  z-index:60;overflow:hidden;max-height:340px;overflow-y:auto;
-}
-.search-dropdown.open{display:block;animation:dropIn .22s ease;}
+.search-dropdown{display:none;position:absolute;top:calc(100% + 8px);left:0;right:0;
+  background:#fff;border-radius:18px;box-shadow:0 10px 40px rgba(0,0,0,.18);
+  z-index:500;overflow:hidden;max-height:340px;overflow-y:auto;}
+.search-dropdown.open{display:block;animation:dropIn .2s ease;}
 @keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.search-group-title{
-  padding:10px 18px 4px;font-size:.72rem;font-weight:800;
-  color:var(--yellow);text-transform:uppercase;letter-spacing:.6px;background:#FFFBF0;
-}
-.search-item{
-  display:flex;align-items:center;gap:12px;padding:11px 18px;cursor:pointer;
-  transition:background .14s;
-}
-.search-item:hover{background:#FFF8EC;}
-.si-emoji{font-size:1.5rem;}
-.si-name{font-weight:700;font-size:.9rem;}
-.si-meta{font-size:.74rem;color:#bbb;}
-.si-badge{padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;margin-left:auto;flex-shrink:0;}
-.si-badge.veg{background:#E8F5E9;color:var(--green);}
-.si-badge.nonveg{background:#FFEBEE;color:#c0392b;}
-.no-result{padding:20px;text-align:center;color:#ccc;font-size:.9rem;}
+.sg-title{padding:10px 18px 4px;font-size:.72rem;font-weight:800;
+  color:var(--yellow);text-transform:uppercase;letter-spacing:.6px;background:#FFFBF0;}
+.si{display:flex;align-items:center;gap:12px;padding:11px 18px;cursor:pointer;transition:background .14s;}
+.si:hover{background:#FFF8EC;}
+.si-e{font-size:1.5rem;}
+.si-n{font-weight:700;font-size:.9rem;}
+.si-m{font-size:.74rem;color:#bbb;}
+.si-b{padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;margin-left:auto;flex-shrink:0;}
+.si-b.veg{background:#E8F5E9;color:var(--green);}
+.si-b.nv{background:#FFEBEE;color:#c0392b;}
+.no-res{padding:20px;text-align:center;color:#ccc;font-size:.9rem;}
 
-/* ── CALORIE SECTION ── */
-.calorie-section{
-  background:var(--yellow);border-radius:28px;padding:24px 20px 28px;
-  margin-top:28px;max-width:520px;position:relative;overflow:hidden;
-  box-shadow:0 12px 44px var(--yellow-glow);
-  opacity:0;animation:fadeUp .8s ease 1.2s both;
+/* ── CALORIE BOX ── */
+.cal-box{
+  background:linear-gradient(135deg,#F5A800 0%,#ffbb33 100%);
+  border-radius:28px;padding:24px 20px 28px;margin-top:28px;max-width:520px;
+  position:relative;overflow:hidden;
+  box-shadow:0 12px 44px var(--yglow);
+  opacity:0;animation:fadeUp .8s ease 1.22s both, heartbeat 4.5s ease 3.5s infinite;
 }
-/* Shimmer sweep */
-.calorie-section::before{
-  content:'';position:absolute;top:-60%;left:-70%;width:70px;height:320%;
+/* shimmer sweep */
+.cal-box::before{content:'';position:absolute;top:-60%;left:-70%;width:70px;height:320%;
   background:rgba(255,255,255,.22);transform:skewX(-18deg);
-  animation:shimmer 4s ease-in-out 2.5s infinite;
-}
+  animation:shimmer 4.5s ease-in-out 2.8s infinite;}
 @keyframes shimmer{0%,100%{left:-70%}50%{left:130%}}
+@keyframes heartbeat{
+  0%,100%{box-shadow:0 12px 44px var(--yglow);}
+  14%{box-shadow:0 16px 52px rgba(245,168,0,.55);}
+  42%{box-shadow:0 18px 58px rgba(245,168,0,.6);}
+  70%{box-shadow:0 13px 46px var(--yglow);}
+}
 
-.calorie-section h3{color:#fff;font-weight:800;font-size:1.1rem;text-align:center;margin-bottom:18px;}
-.meal-carousel{display:flex;align-items:center;gap:8px;}
-.carousel-btn{
-  width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.3);
+.cal-box h3{color:#fff;font-weight:800;font-size:1.1rem;text-align:center;margin-bottom:18px;letter-spacing:.3px;}
+.meal-row{display:flex;align-items:center;gap:8px;}
+.cbtn{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.3);
   border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;transition:background .2s,transform .15s;
-}
-.carousel-btn:hover{background:rgba(255,255,255,.5);transform:scale(1.1);}
+  flex-shrink:0;transition:background .2s,transform .15s;}
+.cbtn:hover{background:rgba(255,255,255,.5);transform:scale(1.12);}
 .meal-cards{display:flex;gap:10px;flex:1;justify-content:center;}
-.meal-card{
-  background:rgba(255,255,255,.26);border-radius:18px;padding:14px 12px;
-  text-align:center;cursor:pointer;flex:1;min-width:88px;
-  transition:all .32s cubic-bezier(.34,1.56,.64,1);
-}
-.meal-card:hover{transform:translateY(-5px);}
-.meal-card.active{
-  background:var(--gray-bg);
-  transform:translateY(-7px);
-  box-shadow:0 10px 28px rgba(0,0,0,.35);
-}
-.meal-card .meal-emoji{
-  font-size:2.1rem;margin-bottom:6px;display:block;
-  transition:transform .3s;
-}
-.meal-card.active .meal-emoji{animation:emojiPop .5s cubic-bezier(.34,1.56,.64,1);}
-@keyframes emojiPop{
-  0%  {transform:scale(1);}
-  40% {transform:scale(1.35) rotate(-10deg);}
-  100%{transform:scale(1) rotate(0);}
-}
-.meal-card .meal-name{font-weight:700;font-size:.83rem;}
-.meal-card:not(.active) .meal-name{color:#1A1A1A;}
-.meal-card.active .meal-name{color:#fff;}
-.meal-card .meal-cal{font-size:.76rem;margin-top:2px;}
-.meal-card:not(.active) .meal-cal{color:#444;}
-.meal-card.active .meal-cal{color:#fff;}
-.meal-details{margin-top:8px;font-size:.74rem;color:#fff;line-height:1.65;display:none;}
-.meal-card.active .meal-details{display:block;animation:fadeIn .3s ease;}
+.mc{background:rgba(255,255,255,.27);border-radius:18px;padding:14px 12px;
+  text-align:center;cursor:pointer;flex:1;min-width:86px;
+  transition:all .3s cubic-bezier(.34,1.56,.64,1);}
+.mc:hover{transform:translateY(-5px);}
+.mc.active{background:var(--gray);transform:translateY(-7px);
+  box-shadow:0 10px 28px rgba(0,0,0,.32);}
+.mc-emoji{font-size:2.1rem;margin-bottom:6px;display:block;transition:transform .3s;}
+.mc.active .mc-emoji{animation:emojiPop .5s cubic-bezier(.34,1.56,.64,1);}
+@keyframes emojiPop{0%{transform:scale(1)}40%{transform:scale(1.4) rotate(-12deg)}100%{transform:scale(1) rotate(0)}}
+.mc-name{font-weight:700;font-size:.83rem;}
+.mc:not(.active) .mc-name{color:#1A1A1A;}
+.mc.active .mc-name{color:#fff;}
+.mc-cal{font-size:.76rem;margin-top:2px;}
+.mc:not(.active) .mc-cal{color:#444;}
+.mc.active .mc-cal{color:#fff;}
+.mc-star{color:var(--yellow);}
+.mc.active .mc-star{color:#FFD700;}
+.mc-details{margin-top:8px;font-size:.74rem;color:#fff;line-height:1.65;display:none;}
+.mc.active .mc-details{display:block;animation:fadeIn .3s ease;}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
-.star{color:var(--yellow);}
-.meal-card.active .star{color:#FFD700;}
 
 /* ── HERO RIGHT ── */
-.hero-right{
-  display:flex;flex-direction:column;gap:20px;
-  opacity:0;animation:slideRight .9s cubic-bezier(.22,1,.36,1) .3s both;
-}
-@keyframes slideRight{from{opacity:0;transform:translateX(55px)}to{opacity:1;transform:translateX(0)}}
+.hero-right{display:flex;flex-direction:column;gap:20px;
+  opacity:0;animation:slideIn .9s cubic-bezier(.22,1,.36,1) .28s both;}
+@keyframes slideIn{from{opacity:0;transform:translateX(58px)}to{opacity:1;transform:translateX(0)}}
 
-.promo-card{
-  border-radius:26px;overflow:hidden;position:relative;
-  cursor:pointer;height:264px;background:#111;
-  transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;
-}
-.promo-card:hover{transform:translateY(-5px) scale(1.012);box-shadow:0 22px 54px rgba(0,0,0,.22);}
-.promo-card img{
-  width:100%;height:100%;object-fit:cover;opacity:.72;
-  transition:opacity .45s,transform .55s;
-}
-.promo-card:hover img{opacity:.88;transform:scale(1.05);}
-.promo-overlay{
-  position:absolute;bottom:0;left:0;right:0;padding:22px 24px;
-  background:linear-gradient(transparent,rgba(0,0,0,.68));
-}
-.promo-overlay h2{
-  color:#fff;font-family:'Montserrat',sans-serif;
-  font-size:1.8rem;line-height:1.18;font-weight:900;
-}
-.promo-overlay p{color:rgba(255,255,255,.9);font-size:.9rem;margin-top:4px;}
-.discover-btn{
-  position:absolute;bottom:22px;right:22px;
-  background:#fff;border:none;border-radius:50px;padding:10px 18px;
-  font-weight:700;font-size:.85rem;cursor:pointer;
-  display:flex;align-items:center;gap:8px;
-  font-family:'Nunito',sans-serif;
-  transition:background .2s,transform .2s,box-shadow .2s,color .2s;
-}
-.discover-btn:hover{
-  background:var(--yellow);color:#fff;
-  transform:translateY(-2px);box-shadow:0 8px 22px var(--yellow-glow);
-}
-.discover-btn svg{width:18px;height:18px;transition:transform .2s;}
-.discover-btn:hover svg{transform:translate(3px,-3px);}
+.promo-card{border-radius:26px;overflow:hidden;position:relative;
+  cursor:pointer;height:265px;background:#111;
+  transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s;}
+.promo-card:hover{transform:translateY(-6px) scale(1.013);box-shadow:0 24px 56px rgba(0,0,0,.22);}
+.promo-card img{width:100%;height:100%;object-fit:cover;opacity:.72;transition:opacity .45s,transform .6s;}
+.promo-card:hover img{opacity:.88;transform:scale(1.06);}
+.promo-ov{position:absolute;bottom:0;left:0;right:0;padding:22px 24px;
+  background:linear-gradient(transparent,rgba(0,0,0,.68));}
+.promo-ov h2{color:#fff;font-family:'Montserrat',sans-serif;font-size:1.75rem;line-height:1.18;font-weight:900;}
+.promo-ov p{color:rgba(255,255,255,.88);font-size:.9rem;margin-top:4px;}
+.disc-btn{position:absolute;bottom:22px;right:22px;background:#fff;border:none;
+  border-radius:50px;padding:10px 18px;font-weight:700;font-size:.85rem;cursor:pointer;
+  display:flex;align-items:center;gap:8px;font-family:'Nunito',sans-serif;
+  transition:background .2s,transform .2s,box-shadow .2s,color .2s;}
+.disc-btn:hover{background:var(--yellow);color:#fff;transform:translateY(-2px);box-shadow:0 8px 22px var(--yglow);}
+.disc-btn svg{width:18px;height:18px;transition:transform .2s;}
+.disc-btn:hover svg{transform:translate(3px,-3px);}
 
-/* ── STATS + RATINGS ── */
-.stats-card{border-radius:26px;overflow:hidden;position:relative;background:#112211;}
-.stats-card img{width:100%;height:215px;object-fit:cover;opacity:.38;transition:transform 9s ease;}
-.stats-card:hover img{transform:scale(1.07);}
-.stats-overlay{
-  position:absolute;inset:0;padding:18px 22px;
-  background:linear-gradient(145deg,rgba(0,0,0,.68),rgba(0,0,0,.2));
-}
-.stats-overlay h2{
-  color:#fff;font-family:'Montserrat',sans-serif;
-  font-size:1.45rem;font-weight:900;line-height:1.28;margin-bottom:14px;
-}
-/* animated counter highlight */
-.stats-overlay h2 span{
-  color:var(--yellow);
-  animation:pulse-num 2.5s ease-in-out infinite;
-}
-@keyframes pulse-num{0%,100%{text-shadow:0 0 0 transparent}50%{text-shadow:0 0 14px var(--yellow-glow)}}
+/* stats card */
+.stats-card{border-radius:26px;overflow:hidden;position:relative;background:#0d1a0d;}
+.stats-card img{width:100%;height:218px;object-fit:cover;opacity:.35;transition:transform 10s ease;}
+.stats-card:hover img{transform:scale(1.08);}
+.stats-ov{position:absolute;inset:0;padding:18px 22px;
+  background:linear-gradient(145deg,rgba(0,0,0,.7),rgba(0,0,0,.18));}
+.stats-ov h2{color:#fff;font-family:'Montserrat',sans-serif;
+  font-size:1.42rem;font-weight:900;line-height:1.3;margin-bottom:14px;}
+.stats-ov h2 span{color:var(--yellow);animation:numGlow 2.5s ease-in-out infinite;}
+@keyframes numGlow{0%,100%{text-shadow:none}50%{text-shadow:0 0 14px var(--yglow)}}
 
-.ratings-list{display:flex;flex-direction:column;gap:9px;}
-.rating-row{
-  display:flex;align-items:center;gap:10px;
-  opacity:0;transform:translateX(-18px);
-  transition:opacity .5s,transform .5s;
-}
-.rating-row.visible{opacity:1;transform:translateX(0);}
-.rating-avatar{
-  width:32px;height:32px;border-radius:50%;
-  display:flex;align-items:center;justify-content:center;
-  font-size:.85rem;font-weight:700;color:#fff;
-  border:2px solid rgba(255,255,255,.38);flex-shrink:0;
-}
-.rating-text{flex:1;}
-.rating-name{color:#fff;font-size:.78rem;font-weight:700;line-height:1.1;}
-.rating-comment{color:rgba(255,255,255,.8);font-size:.7rem;line-height:1.28;}
-.rating-stars{
-  color:#FFD700;font-size:.74rem;flex-shrink:0;
-  animation:starGlow 2s ease-in-out infinite;
-}
-@keyframes starGlow{0%,100%{filter:brightness(1)}50%{filter:brightness(1.5) drop-shadow(0 0 4px #FFD700)}}
+/* ratings */
+.rlist{display:flex;flex-direction:column;gap:9px;}
+.rrow{display:flex;align-items:center;gap:10px;
+  opacity:0;transform:translateX(-18px);transition:opacity .5s,transform .5s;}
+.rrow.vis{opacity:1;transform:translateX(0);}
+.rav{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:.85rem;font-weight:700;color:#fff;border:2px solid rgba(255,255,255,.35);flex-shrink:0;}
+.rtext{flex:1;}
+.rname{color:#fff;font-size:.78rem;font-weight:700;line-height:1.1;}
+.rcmt{color:rgba(255,255,255,.8);font-size:.7rem;line-height:1.28;}
+.rstars{color:#FFD700;font-size:.74rem;flex-shrink:0;animation:starPulse 2.2s ease-in-out infinite;}
+@keyframes starPulse{0%,100%{filter:brightness(1)}50%{filter:brightness(1.6) drop-shadow(0 0 5px #FFD700)}}
 
-/* ══════════════════════════════
+/* ════════════════════════════════════════
    SCROLL REVEAL
-══════════════════════════════ */
-.reveal{opacity:0;transform:translateY(40px);transition:opacity .65s ease,transform .65s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
+════════════════════════════════════════ */
+.rev{opacity:0;transform:translateY(38px);transition:opacity .65s ease,transform .65s ease;}
+.rev.vis{opacity:1;transform:translateY(0);}
 
-/* ══════════════════════════════
+/* ════════════════════════════════════════
    TODAY'S MENU
-══════════════════════════════ */
-#menu{padding:52px 60px;}
-#menu h1{
-  font-family:'Montserrat',sans-serif;font-size:2.9rem;font-weight:900;
-  text-align:center;margin-bottom:44px;
-}
+════════════════════════════════════════ */
+.page-inner{padding:52px 60px;}
+#menu{padding:0;}
+#menu h1{font-family:'Montserrat',sans-serif;font-size:2.9rem;font-weight:900;
+  text-align:center;margin-bottom:44px;}
 .menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;}
-.menu-card{
-  background:var(--yellow);border-radius:28px;padding:28px 20px 26px;text-align:center;
-  box-shadow:0 8px 28px var(--yellow-glow);
-  transition:transform .32s cubic-bezier(.34,1.56,.64,1),box-shadow .32s;
-}
-.menu-card:hover{transform:translateY(-10px) rotate(.6deg);box-shadow:0 20px 44px rgba(245,168,0,.4);}
-.menu-card h3{color:#fff;font-family:'Montserrat',sans-serif;font-size:1.25rem;font-weight:800;margin-bottom:16px;}
-.food-type{display:flex;align-items:center;justify-content:center;gap:6px;margin:10px 0 4px;}
-.food-type.veg{color:var(--green-light);font-weight:700;font-size:.9rem;}
-.food-type.nonveg{color:#c0392b;font-weight:700;font-size:.9rem;}
-.food-name{font-weight:800;font-size:.93rem;color:#1A1A1A;margin:4px 0 12px;}
+.menu-card{background:linear-gradient(145deg,#F5A800,#FFBF33);border-radius:28px;
+  padding:28px 20px 26px;text-align:center;
+  box-shadow:0 8px 26px var(--yglow);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;}
+.menu-card:hover{transform:translateY(-10px) rotate(.5deg);box-shadow:0 22px 48px rgba(245,168,0,.42);}
+.menu-card h3{color:#fff;font-family:'Montserrat',sans-serif;font-size:1.22rem;font-weight:800;margin-bottom:16px;}
+.ftype{display:flex;align-items:center;justify-content:center;gap:6px;margin:10px 0 4px;}
+.ftype.veg{color:var(--glight);font-weight:700;font-size:.9rem;}
+.ftype.nv{color:#c0392b;font-weight:700;font-size:.9rem;}
+.fname{font-weight:800;font-size:.93rem;color:#1A1A1A;margin:4px 0 12px;}
 
-/* ══════════════════════════════
+/* ════════════════════════════════════════
    PACKAGES
-══════════════════════════════ */
-#packages{padding:52px 60px;}
-#packages>h1{
-  font-family:'Montserrat',sans-serif;font-size:2.9rem;font-weight:900;
-  text-align:center;margin-bottom:44px;
-}
+════════════════════════════════════════ */
+#packages{padding:0;}
+#packages>h1{font-family:'Montserrat',sans-serif;font-size:2.9rem;font-weight:900;
+  text-align:center;margin-bottom:44px;}
 .pkg-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px;max-width:900px;margin:0 auto;}
-.pkg-card{
-  background:#FAFAE8;border-radius:28px;padding:36px 32px;
-  transition:transform .3s,box-shadow .3s;
-}
-.pkg-card:hover{transform:translateY(-7px);box-shadow:0 22px 52px var(--green-glow);}
-.pkg-card h2{color:var(--green);font-family:'Montserrat',sans-serif;font-size:2.4rem;font-weight:900;text-align:center;margin-bottom:20px;}
+.pkg-card{background:#FAFAE8;border-radius:28px;padding:36px 32px;
+  transition:transform .3s,box-shadow .3s;}
+.pkg-card:hover{transform:translateY(-7px);box-shadow:0 22px 52px var(--gglow);}
+.pkg-card h2{color:var(--green);font-family:'Montserrat',sans-serif;
+  font-size:2.4rem;font-weight:900;text-align:center;margin-bottom:20px;}
 .pkg-card ul{list-style:disc;padding-left:20px;color:#444;line-height:1.9;font-size:.92rem;}
-.btn-buy{
-  display:block;width:100%;margin-top:24px;background:var(--green);color:#fff;border:none;
+.btn-buy{display:block;width:100%;margin-top:24px;background:var(--green);color:#fff;border:none;
   border-radius:50px;padding:14px;font-size:1rem;font-weight:700;cursor:pointer;
-  font-family:'Nunito',sans-serif;
-  transition:background .2s,transform .15s,box-shadow .2s;
-}
-.btn-buy:hover{background:#2f5500;transform:translateY(-2px);box-shadow:0 8px 24px var(--green-glow);}
-.pkg-tagline{
-  text-align:center;font-size:1.18rem;font-weight:700;color:var(--dark);
-  margin-top:38px;max-width:800px;margin-left:auto;margin-right:auto;line-height:1.55;
-}
+  font-family:'Nunito',sans-serif;transition:background .2s,transform .15s,box-shadow .2s;}
+.btn-buy:hover{background:#2e5500;transform:translateY(-2px);box-shadow:0 8px 24px var(--gglow);}
+.pkg-tag{text-align:center;font-size:1.15rem;font-weight:700;color:var(--dark);
+  margin-top:38px;max-width:800px;margin-left:auto;margin-right:auto;line-height:1.55;}
 
-/* ══════════════════════════════
+/* ════════════════════════════════════════
    MODALS
-══════════════════════════════ */
-.modal-overlay{
-  display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);
-  z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(5px);
-}
+════════════════════════════════════════ */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.52);
+  z-index:999;align-items:center;justify-content:center;backdrop-filter:blur(5px);}
 .modal-overlay.open{display:flex;}
-.modal{
-  background:#fff;border-radius:26px;padding:42px;max-width:780px;width:92%;
+.modal{background:#fff;border-radius:26px;padding:42px;max-width:780px;width:92%;
   max-height:88vh;overflow-y:auto;position:relative;
-  animation:modalIn .38s cubic-bezier(.22,1,.36,1);
-}
-@keyframes modalIn{
-  from{opacity:0;transform:translateY(44px) scale(.95);}
-  to  {opacity:1;transform:translateY(0) scale(1);}
-}
-.modal-close{
-  position:absolute;top:16px;right:20px;background:none;border:none;
-  font-size:1.6rem;cursor:pointer;color:#bbb;line-height:1;
-  transition:color .2s,transform .25s;
-}
+  animation:modalIn .38s cubic-bezier(.22,1,.36,1);}
+@keyframes modalIn{from{opacity:0;transform:translateY(44px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+.modal-close{position:absolute;top:16px;right:20px;background:none;border:none;
+  font-size:1.6rem;cursor:pointer;color:#bbb;line-height:1;transition:color .2s,transform .25s;}
 .modal-close:hover{color:#333;transform:rotate(90deg);}
 .modal h2{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;margin-bottom:6px;}
 .modal p.sub{color:#777;margin-bottom:28px;}
 .modal-meals{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
-.modal-meal-card{
-  background:var(--cream);border-radius:18px;padding:20px 22px;
-  transition:transform .26s;
-}
-.modal-meal-card:hover{transform:translateY(-4px);}
-.modal-meal-card h4{font-size:1rem;font-weight:800;margin-bottom:12px;}
-.modal-meal-item{display:flex;align-items:center;gap:10px;margin:8px 0;}
+.mmc{background:var(--cream);border-radius:18px;padding:20px 22px;transition:transform .26s;}
+.mmc:hover{transform:translateY(-4px);}
+.mmc h4{font-size:1rem;font-weight:800;margin-bottom:12px;}
+.mmi{display:flex;align-items:center;gap:10px;margin:8px 0;}
 .badge{padding:3px 10px;border-radius:20px;font-size:.72rem;font-weight:700;}
 .badge.veg{background:#E8F5E9;color:var(--green);}
-.badge.nonveg{background:#FFEBEE;color:#c0392b;}
-.modal-meal-item .name{font-size:.88rem;font-weight:600;}
+.badge.nv{background:#FFEBEE;color:#c0392b;}
+.mmi .mname{font-size:.88rem;font-weight:600;}
 
-/* ── AUTH MODAL ── */
+/* AUTH MODAL */
 #authModal .modal{max-width:430px;padding:40px 38px;}
-.auth-tabs{display:flex;margin-bottom:28px;border-radius:14px;overflow:hidden;border:1.5px solid #eee;}
-.auth-tab{
-  flex:1;padding:12px;text-align:center;font-weight:700;font-size:.95rem;cursor:pointer;
-  background:#F7F7F7;color:#aaa;border:none;
-  font-family:'Nunito',sans-serif;transition:all .25s;
-}
-.auth-tab.active{background:var(--yellow);color:#fff;}
-.auth-form{display:none;}
-.auth-form.active{display:block;animation:fadeUp .3s ease;}
-.auth-form h3{font-family:'Montserrat',sans-serif;font-size:1.45rem;font-weight:900;margin-bottom:4px;}
-.auth-form .hint{color:#888;font-size:.86rem;margin-bottom:20px;}
+.atabs{display:flex;margin-bottom:28px;border-radius:14px;overflow:hidden;border:1.5px solid #eee;}
+.atab{flex:1;padding:12px;text-align:center;font-weight:700;font-size:.95rem;cursor:pointer;
+  background:#F7F7F7;color:#aaa;border:none;font-family:'Nunito',sans-serif;transition:all .25s;}
+.atab.active{background:var(--yellow);color:#fff;}
+.aform{display:none;}
+.aform.active{display:block;animation:fadeUp .3s ease;}
+.aform h3{font-family:'Montserrat',sans-serif;font-size:1.45rem;font-weight:900;margin-bottom:4px;}
+.aform .hint{color:#888;font-size:.86rem;margin-bottom:20px;}
 .field{margin-bottom:14px;}
 .field label{display:block;font-weight:700;font-size:.83rem;margin-bottom:5px;color:#444;}
-.field input{
-  width:100%;border:1.5px solid #ddd;border-radius:12px;padding:11px 16px;
-  font-size:.93rem;font-family:'Nunito',sans-serif;outline:none;
-  transition:border .2s,box-shadow .2s;
-}
-.field input:focus{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(245,168,0,.12);}
-.btn-auth{
-  width:100%;background:var(--yellow);color:#fff;border:none;border-radius:50px;
-  padding:13px;font-size:1rem;font-weight:700;cursor:pointer;
-  font-family:'Nunito',sans-serif;
-  transition:background .2s,transform .15s,box-shadow .2s;margin-top:4px;
-}
-.btn-auth:hover{background:#d48f00;transform:translateY(-2px);box-shadow:0 6px 20px var(--yellow-glow);}
+.field input{width:100%;border:1.5px solid #ddd;border-radius:12px;padding:11px 16px;
+  font-size:.93rem;font-family:'Nunito',sans-serif;outline:none;transition:border .2s,box-shadow .2s;}
+.field input:focus{border-color:var(--yellow);box-shadow:0 0 0 3px rgba(245,168,0,.13);}
+.btn-auth{width:100%;background:var(--yellow);color:#fff;border:none;border-radius:50px;
+  padding:13px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;
+  transition:background .2s,transform .15s,box-shadow .2s;margin-top:4px;}
+.btn-auth:hover{background:#d48f00;transform:translateY(-2px);box-shadow:0 6px 20px var(--yglow);}
 .auth-msg{font-size:.84rem;margin-top:10px;text-align:center;min-height:18px;}
-.auth-msg.success{color:var(--green);}
-.auth-msg.error{color:#c0392b;}
-.switch-link{text-align:center;margin-top:12px;font-size:.84rem;color:#aaa;}
-.switch-link span{color:var(--yellow);font-weight:700;cursor:pointer;}
-.switch-link span:hover{text-decoration:underline;}
+.auth-msg.ok{color:var(--green);}
+.auth-msg.err{color:#c0392b;}
+.slink{text-align:center;margin-top:12px;font-size:.84rem;color:#aaa;}
+.slink span{color:var(--yellow);font-weight:700;cursor:pointer;}
+.slink span:hover{text-decoration:underline;}
 
-/* ══════════════════════════════
-   NUTRIENT ORBIT ANIMATION
-   (decorative spinning ring on hero)
-══════════════════════════════ */
-.nutrient-ring{
-  position:absolute;right:-40px;top:20px;
-  width:280px;height:280px;pointer-events:none;z-index:0;
-  opacity:.12;
-  animation:ringRotate 20s linear infinite;
-}
-@keyframes ringRotate{from{transform:rotate(0)}to{transform:rotate(360deg)}}
-.hero-right{position:relative;}
+/* ════════════════════════════════════════
+   VEGGIE BURST (on search focus / pick)
+════════════════════════════════════════ */
+.vburst{position:fixed;pointer-events:none;z-index:9998;font-size:1.2rem;
+  animation:vbFade .65s ease forwards;}
+@keyframes vbFade{0%{opacity:1;transform:translateY(0) scale(1)}100%{opacity:0;transform:translateY(-44px) scale(.15)}}
 
-/* ══════════════════════════════
-   HEARTBEAT PULSE on calorie box
-══════════════════════════════ */
-@keyframes heartbeat{
-  0%,100%{transform:scale(1);}
-  14%    {transform:scale(1.04);}
-  28%    {transform:scale(.98);}
-  42%    {transform:scale(1.05);}
-  70%    {transform:scale(.99);}
+/* ════════════════════════════════════════
+   🌱 GROWING SPROUT (decorative, hero left)
+════════════════════════════════════════ */
+.sprout-deco{
+  position:absolute;right:-18px;bottom:-10px;font-size:3.2rem;
+  opacity:.08;pointer-events:none;
+  animation:sproutGrow 3s cubic-bezier(.22,1,.36,1) 1.5s both;
 }
-.calorie-section{animation:fadeUp .8s ease 1.2s both, heartbeat 4s ease 3s infinite;}
+@keyframes sproutGrow{from{opacity:0;transform:scale(0) translateY(30px)}to{opacity:.08;transform:scale(1) translateY(0)}}
 
-/* ══════════════════════════════
-   VEGGIE TRAIL on search focus
-══════════════════════════════ */
-.veggie-burst{
-  position:fixed;pointer-events:none;z-index:9998;font-size:1.2rem;
-  animation:burstFade .6s ease forwards;
+/* Pulse ring on search bar when focused */
+.search-bar:focus-within::after{
+  content:''; position:absolute; inset:-4px; border-radius:54px;
+  border:2px solid var(--yellow); opacity:0;
+  animation:ringPulse 1.2s ease-out;
+  pointer-events:none;
 }
-@keyframes burstFade{
-  0%  {opacity:1;transform:translateY(0) scale(1);}
-  100%{opacity:0;transform:translateY(-40px) scale(.2);}
+@keyframes ringPulse{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.05)}}
+
+/* Wavy green underline on "Love" word */
+.word-love{
+  position:relative;display:inline-block;
+}
+.word-love::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;height:5px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 8'%3E%3Cpath d='M0 4 Q7.5 0 15 4 Q22.5 8 30 4 Q37.5 0 45 4 Q52.5 8 60 4' stroke='%2372B200' fill='none' stroke-width='2.5'/%3E%3C/svg%3E") repeat-x center;
+  opacity:0;animation:wavyIn .6s ease 1.4s both;
+}
+@keyframes wavyIn{from{opacity:0;transform:scaleX(.4)}to{opacity:1;transform:scaleX(1)}}
+
+/* ════════════════════════════════════════
+   ABOUT US PAGE
+════════════════════════════════════════ */
+.about-hero{
+  background:linear-gradient(135deg,#1a2e00 0%,#2e5500 55%,#4a7c00 100%);
+  padding:70px 60px 60px;text-align:center;position:relative;overflow:hidden;
+}
+.about-hero::before{
+  content:'🌿';font-size:18rem;position:absolute;right:-60px;top:-40px;
+  opacity:.06;pointer-events:none;
+}
+.about-hero h1{
+  font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:900;color:#fff;
+  margin-bottom:16px;
+}
+.about-hero p{color:rgba(255,255,255,.82);font-size:1.1rem;max-width:600px;margin:0 auto;line-height:1.7;}
+
+.about-mission{
+  display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;
+  padding:60px 60px;
+}
+.about-mission img{width:100%;border-radius:24px;object-fit:cover;height:340px;
+  box-shadow:0 16px 48px rgba(0,0,0,.12);}
+.about-mission-text h2{
+  font-family:'Montserrat',sans-serif;font-size:2.1rem;font-weight:900;
+  color:var(--dark);margin-bottom:16px;
+}
+.about-mission-text h2 span{color:var(--glight);}
+.about-mission-text p{color:#555;line-height:1.75;font-size:.97rem;margin-bottom:14px;}
+
+.about-values{background:var(--cream);padding:56px 60px;}
+.about-values h2{
+  font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;
+  text-align:center;margin-bottom:40px;
+}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+.val-card{background:#fff;border-radius:22px;padding:32px 24px;text-align:center;
+  box-shadow:0 4px 20px rgba(0,0,0,.06);
+  transition:transform .3s cubic-bezier(.34,1.56,.64,1),box-shadow .3s;}
+.val-card:hover{transform:translateY(-8px);box-shadow:0 16px 40px rgba(0,0,0,.1);}
+.val-icon{font-size:2.8rem;margin-bottom:14px;display:block;
+  animation:iconFloat 3s ease-in-out infinite;}
+.val-card:nth-child(2) .val-icon{animation-delay:.4s;}
+.val-card:nth-child(3) .val-icon{animation-delay:.8s;}
+@keyframes iconFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.val-card h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.1rem;
+  color:var(--dark);margin-bottom:10px;}
+.val-card p{color:#666;font-size:.88rem;line-height:1.6;}
+
+.about-team{padding:56px 60px;}
+.about-team h2{font-family:'Montserrat',sans-serif;font-size:2rem;font-weight:900;
+  text-align:center;margin-bottom:40px;}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;max-width:860px;margin:0 auto;}
+.team-card{text-align:center;}
+.team-avatar{width:90px;height:90px;border-radius:50%;margin:0 auto 14px;
+  display:flex;align-items:center;justify-content:center;font-size:2.5rem;
+  box-shadow:0 8px 24px rgba(0,0,0,.1);transition:transform .3s;}
+.team-card:hover .team-avatar{transform:scale(1.1) rotate(-4deg);}
+.team-card h4{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;margin-bottom:4px;}
+.team-card .role{color:var(--glight);font-weight:700;font-size:.82rem;margin-bottom:8px;}
+.team-card p{color:#777;font-size:.82rem;line-height:1.5;}
+
+.about-stats{
+  background:linear-gradient(135deg,#F5A800,#ffcc55);
+  padding:50px 60px;text-align:center;
+}
+.about-stats h2{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:900;
+  color:#fff;margin-bottom:36px;}
+.stats-row{display:flex;justify-content:center;gap:60px;flex-wrap:wrap;}
+.stat-item{}
+.stat-num{font-family:'Montserrat',sans-serif;font-size:2.8rem;font-weight:900;color:#fff;line-height:1;}
+.stat-label{color:rgba(255,255,255,.85);font-size:.9rem;font-weight:600;margin-top:6px;}
+
+/* ════════════════════════════════════════
+   CONTACT PAGE
+════════════════════════════════════════ */
+.contact-hero{
+  background:linear-gradient(135deg,#0d1a0d 0%,#1a3300 60%,#2e5500 100%);
+  padding:60px 60px 50px;text-align:center;position:relative;overflow:hidden;
+}
+.contact-hero::before{
+  content:'📬';font-size:14rem;position:absolute;left:-40px;bottom:-40px;
+  opacity:.06;pointer-events:none;
+}
+.contact-hero h1{font-family:'Montserrat',sans-serif;font-size:3rem;font-weight:900;
+  color:#fff;margin-bottom:14px;}
+.contact-hero p{color:rgba(255,255,255,.78);font-size:1.05rem;max-width:520px;margin:0 auto;}
+
+.contact-body{display:grid;grid-template-columns:1fr 1.1fr;gap:48px;padding:60px 60px;align-items:start;}
+
+/* info column */
+.contact-info h2{font-family:'Montserrat',sans-serif;font-size:1.7rem;font-weight:900;
+  margin-bottom:24px;color:var(--dark);}
+.cinfo-item{display:flex;align-items:flex-start;gap:16px;margin-bottom:24px;}
+.cinfo-icon{width:46px;height:46px;border-radius:14px;display:flex;align-items:center;
+  justify-content:center;font-size:1.4rem;flex-shrink:0;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);}
+.cinfo-icon.yellow{background:var(--yellow);}
+.cinfo-icon.green{background:var(--glight);}
+.cinfo-icon.dark{background:var(--dark);}
+.cinfo-text strong{display:block;font-weight:800;font-size:.95rem;color:var(--dark);margin-bottom:2px;}
+.cinfo-text span{color:#666;font-size:.88rem;line-height:1.5;}
+
+.social-row{display:flex;gap:12px;margin-top:10px;}
+.soc-btn{width:42px;height:42px;border-radius:12px;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;font-size:1.25rem;
+  transition:transform .2s,box-shadow .2s;background:#f0f0f0;}
+.soc-btn:hover{transform:translateY(-3px);box-shadow:0 6px 16px rgba(0,0,0,.12);}
+
+/* form column */
+.contact-form-wrap{background:var(--cream);border-radius:24px;padding:36px 32px;}
+.contact-form-wrap h2{font-family:'Montserrat',sans-serif;font-size:1.5rem;font-weight:900;
+  margin-bottom:6px;}
+.contact-form-wrap p.sub{color:#888;font-size:.88rem;margin-bottom:24px;}
+.cfield{margin-bottom:16px;}
+.cfield label{display:block;font-weight:700;font-size:.83rem;margin-bottom:6px;color:#444;}
+.cfield input,.cfield textarea,.cfield select{
+  width:100%;border:1.5px solid #e0e0e0;border-radius:12px;padding:12px 16px;
+  font-size:.93rem;font-family:'Nunito',sans-serif;outline:none;
+  transition:border .2s,box-shadow .2s;background:#fff;color:var(--dark);}
+.cfield input:focus,.cfield textarea:focus,.cfield select:focus{
+  border-color:var(--yellow);box-shadow:0 0 0 3px rgba(245,168,0,.13);}
+.cfield textarea{resize:vertical;min-height:110px;}
+.btn-send{width:100%;background:var(--yellow);color:#fff;border:none;border-radius:50px;
+  padding:14px;font-size:1rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;
+  transition:background .2s,transform .15s,box-shadow .2s;display:flex;align-items:center;
+  justify-content:center;gap:8px;margin-top:4px;}
+.btn-send:hover{background:#d48f00;transform:translateY(-2px);box-shadow:0 8px 24px var(--yglow);}
+.contact-success{display:none;text-align:center;padding:20px;
+  background:#E8F5E9;border-radius:14px;margin-top:14px;}
+.contact-success.show{display:block;animation:fadeIn .4s ease;}
+.contact-success p{color:var(--green);font-weight:700;font-size:1rem;}
+
+/* map placeholder */
+.map-strip{background:#e8f0e8;height:200px;display:flex;align-items:center;
+  justify-content:center;font-size:1.1rem;color:#666;gap:10px;font-weight:600;
+  border-top:3px solid var(--glight);}
+
+/* ── About/Contact mobile ── */
+@media(max-width:900px){
+  .about-hero,.contact-hero{padding:50px 24px 44px;}
+  .about-hero h1,.contact-hero h1{font-size:2.2rem;}
+  .about-mission{grid-template-columns:1fr;padding:40px 24px;gap:28px;}
+  .about-mission img{height:240px;}
+  .about-values,.about-team{padding:40px 24px;}
+  .values-grid{grid-template-columns:1fr 1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .about-stats{padding:40px 24px;}
+  .stats-row{gap:36px;}
+  .contact-body{grid-template-columns:1fr;padding:40px 24px;gap:32px;}
+}
+@media(max-width:600px){
+  .about-hero,.contact-hero{padding:36px 18px 34px;}
+  .about-hero h1,.contact-hero h1{font-size:1.8rem;}
+  .about-hero p,.contact-hero p{font-size:.93rem;}
+  .about-mission{padding:28px 18px;gap:22px;}
+  .about-mission-text h2{font-size:1.5rem;}
+  .about-values,.about-team{padding:30px 18px;}
+  .about-values h2,.about-team h2{font-size:1.5rem;margin-bottom:26px;}
+  .values-grid{grid-template-columns:1fr;}
+  .team-grid{grid-template-columns:1fr 1fr;}
+  .team-avatar{width:72px;height:72px;font-size:2rem;}
+  .about-stats{padding:32px 18px;}
+  .stat-num{font-size:2.2rem;}
+  .stats-row{gap:24px;}
+  .contact-body{padding:28px 18px;gap:24px;}
+  .contact-form-wrap{padding:24px 18px;}
+}
+
+/* ════════════════════════════════════════
+   MOBILE NAV HAMBURGER
+════════════════════════════════════════ */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;
+  background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:24px;height:2.5px;background:var(--dark);
+  border-radius:2px;transition:all .3s;}
+.hamburger.open span:nth-child(1){transform:translateY(7.5px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;transform:scaleX(0);}
+.hamburger.open span:nth-child(3){transform:translateY(-7.5px) rotate(-45deg);}
+.mobile-menu{display:none;position:fixed;inset:0;top:60px;background:rgba(255,255,255,.98);
+  backdrop-filter:blur(16px);z-index:250;flex-direction:column;align-items:center;
+  justify-content:center;gap:36px;animation:menuFade .3s ease;}
+@keyframes menuFade{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+.mobile-menu.open{display:flex;}
+.mobile-menu a{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.6rem;
+  color:var(--dark);cursor:pointer;text-decoration:none;transition:color .2s;}
+.mobile-menu a:hover{color:var(--green);}
+.mobile-menu .m-btns{display:flex;gap:12px;margin-top:8px;}
+
+/* ════════════════════════════════════════
+   TABLET  (≤ 900px)
+════════════════════════════════════════ */
+@media(max-width:900px){
+  nav{padding:14px 24px;}
+  .nav-links{display:none;}
+  .hamburger{display:flex;}
+  .home-inner{padding:32px 24px 50px;}
+  .home-grid{grid-template-columns:1fr;gap:32px;}
+  .hero-h1{font-size:3rem;}
+  .word-with{font-size:2.8rem;}
+  .search-wrap{max-width:100%;}
+  .cal-box{max-width:100%;}
+  .hero-right{width:100%;}
+  .promo-card{height:220px;}
+  .stats-card img{height:200px;}
+  #menu{padding:0;}
+  .page-inner{padding:36px 24px;}
+  #packages{padding:0;}
+  .menu-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
+  .pkg-grid{grid-template-columns:1fr;max-width:520px;}
+  .modal{padding:30px 24px;}
+  .modal-meals{grid-template-columns:1fr 1fr;}
+}
+
+/* ════════════════════════════════════════
+   SMARTPHONE  (≤ 600px)
+════════════════════════════════════════ */
+@media(max-width:600px){
+  nav{padding:12px 18px;}
+  .btn-signup{padding:8px 16px;font-size:.86rem;}
+  .user-icon{width:34px;height:34px;}
+
+  /* HOME */
+  .home-inner{padding:24px 18px 44px;}
+  .home-grid{grid-template-columns:1fr;gap:24px;}
+  .hero-h1{font-size:2.4rem;line-height:1.1;}
+  .word-with{font-size:2.2rem;}
+  .hero-tagline{font-size:.92rem;margin:16px 0 22px;}
+  .search-wrap{max-width:100%;}
+  .search-bar{padding:9px 9px 9px 18px;}
+  .search-bar input{font-size:.88rem;}
+  .search-btn{width:38px;height:38px;}
+
+  /* calorie */
+  .cal-box{padding:18px 14px 22px;border-radius:22px;}
+  .cal-box h3{font-size:.95rem;margin-bottom:14px;}
+  .mc{min-width:0;padding:10px 7px;border-radius:14px;}
+  .mc-emoji{font-size:1.7rem;margin-bottom:4px;}
+  .mc-name{font-size:.75rem;}
+  .mc-cal{font-size:.68rem;}
+  .mc-details{font-size:.68rem;line-height:1.5;}
+  .cbtn{width:26px;height:26px;}
+
+  /* hero right */
+  .promo-card{height:185px;}
+  .promo-ov h2{font-size:1.35rem;}
+  .disc-btn{padding:8px 13px;font-size:.78rem;}
+  .stats-card img{height:180px;}
+  .stats-ov h2{font-size:1.1rem;margin-bottom:10px;}
+  .rav{width:28px;height:28px;font-size:.75rem;}
+  .rname{font-size:.72rem;}
+  .rcmt{font-size:.65rem;}
+  .rstars{font-size:.68rem;}
+
+  /* menu page */
+  .page-inner{padding:28px 18px;}
+  #menu h1{font-size:2rem;margin-bottom:28px;}
+  .menu-grid{grid-template-columns:1fr 1fr;gap:12px;}
+  .menu-card{padding:18px 12px 16px;border-radius:20px;}
+  .menu-card h3{font-size:1rem;margin-bottom:10px;}
+  .ftype{font-size:.78rem;}
+  .fname{font-size:.8rem;margin:3px 0 8px;}
+
+  /* packages page */
+  #packages>h1{font-size:2rem;margin-bottom:28px;}
+  .pkg-grid{grid-template-columns:1fr;gap:20px;}
+  .pkg-card{padding:26px 20px;}
+  .pkg-card h2{font-size:1.8rem;margin-bottom:14px;}
+  .pkg-card ul{font-size:.85rem;line-height:1.75;}
+  .pkg-tag{font-size:1rem;margin-top:26px;}
+
+  /* modals */
+  .modal{padding:26px 18px;border-radius:20px;width:96%;}
+  .modal h2{font-size:1.5rem;}
+  .modal-meals{grid-template-columns:1fr;gap:12px;}
+  .mmc{padding:16px 14px;}
+  #authModal .modal{padding:28px 20px;}
+  .atab{font-size:.85rem;padding:10px;}
+
+  /* search dropdown mobile */
+  .search-dropdown{border-radius:14px;}
+  .sg-title{font-size:.68rem;padding:8px 14px 3px;}
+  .si{padding:10px 14px;gap:10px;}
+  .si-e{font-size:1.3rem;}
+  .si-n{font-size:.84rem;}
+  .si-m{font-size:.68rem;}
+  .si-b{font-size:.65rem;padding:2px 8px;}
+
+  /* hide leaf trail on touch */
+  .leaf{display:none;}
+}
+
+/* ════════════════════════════════════════
+   EXTRA SMALL  (≤ 380px)
+════════════════════════════════════════ */
+@media(max-width:380px){
+  .hero-h1{font-size:2rem;}
+  .word-with{font-size:1.85rem;}
+  .menu-grid{grid-template-columns:1fr;}
+  .mc-emoji{font-size:1.4rem;}
 }
 </style>
 </head>
 <body>
 
-<!-- FLOATING PRODUCE BG -->
+<!-- BG PARTICLES -->
 <div id="particles"></div>
+<!-- PAGE PROGRESS BAR -->
+<div id="pbar"></div>
 
 <!-- ════ NAV ════ -->
 <nav>
-  <div class="logo" onclick="showPage('home')">
+  <div class="logo" onclick="showPage('home');closeMobileMenu()">
     <span class="l1">HEALTHY</span><span class="l2">VIBES</span>
   </div>
   <ul class="nav-links">
     <li><a onclick="showPage('home')">Home</a></li>
     <li><a onclick="showPage('menu')">Todays Menu</a></li>
     <li><a onclick="showPage('packages')">Packages</a></li>
+    <li><a onclick="showPage('about')">About Us</a></li>
+    <li><a onclick="showPage('contact')">Contact</a></li>
   </ul>
   <div class="nav-right">
     <span class="nav-username" id="navUsername"></span>
@@ -527,29 +719,49 @@ nav{
     <div class="user-icon" onclick="openAuth('login')">
       <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
     </div>
+    <button class="hamburger" id="hamburger" onclick="toggleMobileMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
+<!-- MOBILE MENU OVERLAY -->
+<div class="mobile-menu" id="mobileMenu">
+  <a onclick="showPage('home');closeMobileMenu()">Home</a>
+  <a onclick="showPage('menu');closeMobileMenu()">Todays Menu</a>
+  <a onclick="showPage('packages');closeMobileMenu()">Packages</a>
+  <a onclick="showPage('about');closeMobileMenu()">About Us</a>
+  <a onclick="showPage('contact');closeMobileMenu()">Contact</a>
+  <div class="m-btns">
+    <button class="btn-signup" onclick="openAuth('signup');closeMobileMenu()">Sign Up</button>
+    <div class="user-icon" onclick="openAuth('login');closeMobileMenu()">
+      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+    </div>
+  </div>
+</div>
+
 <!-- ════════ HOME ════════ -->
 <div id="home" class="page active">
-<div style="padding:48px 60px 70px;position:relative;">
+<div class="home-inner">
 <div class="home-grid">
 
-  <!-- LEFT -->
+  <!-- LEFT COLUMN -->
   <div class="hero-left">
-    <!-- MONTSERRAT hero headline -->
-    <h1>
+    <!-- MONTSERRAT HERO TITLE -->
+    <h1 class="hero-h1">
       <span class="word-fresh">Fresh</span> Meals<br>
       Cooked <span class="word-with">with</span><br>
-      Love
+      <span class="word-love">Love</span>
     </h1>
+    <div class="sprout-deco">🌿</div>
+
     <p class="hero-tagline">Get guilt free healthy meals delivered to your doorstep, meals with interesting taste are curated for your body to have the optimal nutrition</p>
 
     <!-- SEARCH -->
-    <div class="search-wrap" id="searchWrap">
+    <div class="search-wrap" id="searchWrap" style="position:relative;">
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Get your favourite meals here"
-          oninput="handleSearch()" onfocus="handleSearchFocus()" autocomplete="off">
+          oninput="handleSearch()" onfocus="onSearchFocus()" autocomplete="off">
         <button class="search-btn">
           <svg viewBox="0 0 24 24"><path d="M21 19l-4.35-4.35A7.5 7.5 0 1 0 15.65 16.65L20 21l1-2zm-10-3a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/></svg>
         </button>
@@ -558,130 +770,123 @@ nav{
     </div>
 
     <!-- CALORIE BREAKDOWN -->
-    <div class="calorie-section">
+    <div class="cal-box">
       <h3>Calorie breakdown by meal</h3>
-      <div class="meal-carousel">
-        <button class="carousel-btn">
+      <div class="meal-row">
+        <button class="cbtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
         </button>
         <div class="meal-cards">
-          <div class="meal-card" onclick="toggleMeal(this)">
-            <span class="meal-emoji">🍛</span>
-            <div class="meal-name">Dinner</div>
-            <div class="meal-cal"><span class="star">★</span> 535</div>
-            <div class="meal-details">Calories: 535 kcal<br>Fat: 22gm<br>Protein: 45gm<br>Carbs: 180gm</div>
+          <div class="mc" onclick="toggleMeal(this)">
+            <span class="mc-emoji">🍛</span>
+            <div class="mc-name">Dinner</div>
+            <div class="mc-cal"><span class="mc-star">★</span> 535</div>
+            <div class="mc-details">Calories: 535 kcal<br>Fat: 22gm<br>Protein: 45gm<br>Carbs: 180gm</div>
           </div>
-          <div class="meal-card active" onclick="toggleMeal(this)">
-            <span class="meal-emoji">🥗</span>
-            <div class="meal-name">Brunch</div>
-            <div class="meal-cal"><span class="star">★</span> 450</div>
-            <div class="meal-details">Calories: 450 kcal<br>Fat: 30gm<br>Protein: 50gm<br>Carbs: 200gm</div>
+          <div class="mc active" onclick="toggleMeal(this)">
+            <span class="mc-emoji">🥗</span>
+            <div class="mc-name">Brunch</div>
+            <div class="mc-cal"><span class="mc-star">★</span> 450</div>
+            <div class="mc-details">Calories: 450 kcal<br>Fat: 30gm<br>Protein: 50gm<br>Carbs: 200gm</div>
           </div>
-          <div class="meal-card" onclick="toggleMeal(this)">
-            <span class="meal-emoji">🥣</span>
-            <div class="meal-name">Breakfast</div>
-            <div class="meal-cal"><span class="star">★</span> 634</div>
-            <div class="meal-details">Calories: 634 kcal<br>Fat: 18gm<br>Protein: 40gm<br>Carbs: 220gm</div>
+          <div class="mc" onclick="toggleMeal(this)">
+            <span class="mc-emoji">🥣</span>
+            <div class="mc-name">Breakfast</div>
+            <div class="mc-cal"><span class="mc-star">★</span> 634</div>
+            <div class="mc-details">Calories: 634 kcal<br>Fat: 18gm<br>Protein: 40gm<br>Carbs: 220gm</div>
           </div>
-          <div class="meal-card" onclick="toggleMeal(this)">
-            <span class="meal-emoji">🍱</span>
-            <div class="meal-name">Lunch</div>
-            <div class="meal-cal"><span class="star">★</span> 634</div>
-            <div class="meal-details">Calories: 634 kcal<br>Fat: 25gm<br>Protein: 55gm<br>Carbs: 210gm</div>
+          <div class="mc" onclick="toggleMeal(this)">
+            <span class="mc-emoji">🍱</span>
+            <div class="mc-name">Lunch</div>
+            <div class="mc-cal"><span class="mc-star">★</span> 634</div>
+            <div class="mc-details">Calories: 634 kcal<br>Fat: 25gm<br>Protein: 55gm<br>Carbs: 210gm</div>
           </div>
         </div>
-        <button class="carousel-btn">
+        <button class="cbtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
         </button>
       </div>
     </div>
   </div><!-- /hero-left -->
 
-  <!-- RIGHT -->
+  <!-- RIGHT COLUMN -->
   <div class="hero-right">
-    <!-- Spinning nutrient ring decoration -->
-    <svg class="nutrient-ring" viewBox="0 0 280 280" fill="none">
-      <circle cx="140" cy="140" r="130" stroke="#6FAF00" stroke-width="2" stroke-dasharray="12 8"/>
-      <circle cx="140" cy="140" r="100" stroke="#F5A800" stroke-width="1.5" stroke-dasharray="6 10"/>
-      <circle cx="140" cy="140" r="70"  stroke="#6FAF00" stroke-width="1" stroke-dasharray="4 12"/>
-    </svg>
-
     <!-- Promo card -->
     <div class="promo-card">
       <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=800&auto=format&fit=crop" alt="Healthy Bowl">
-      <div class="promo-overlay">
+      <div class="promo-ov">
         <h2>EXPLORE MONTHLY<br>PACKAGES</h2>
         <p>Nourish, Energize, and Thrive</p>
       </div>
-      <button class="discover-btn" onclick="openDiscover()">
+      <button class="disc-btn" onclick="openDiscover()">
         Discover More
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </button>
     </div>
 
-    <!-- Stats + Ratings -->
+    <!-- Stats + ratings -->
     <div class="stats-card">
       <img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=800&auto=format&fit=crop" alt="Salad">
-      <div class="stats-overlay">
+      <div class="stats-ov">
         <h2><span>4,500+</span> Ratings · <span>1,000+</span> Active Customers</h2>
-        <div class="ratings-list">
-          <div class="rating-row">
-            <div class="rating-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c);">P</div>
-            <div class="rating-text">
-              <div class="rating-name">Priya S. — Mumbai</div>
-              <div class="rating-comment">"Lost 4kg in a month. Paneer bowl is 🔥"</div>
+        <div class="rlist">
+          <div class="rrow">
+            <div class="rav" style="background:linear-gradient(135deg,#f093fb,#f5576c);">P</div>
+            <div class="rtext">
+              <div class="rname">Priya S. — Mumbai</div>
+              <div class="rcmt">"Lost 4kg in a month. Paneer bowl is 🔥"</div>
             </div>
-            <div class="rating-stars">★★★★★</div>
+            <div class="rstars">★★★★★</div>
           </div>
-          <div class="rating-row">
-            <div class="rating-avatar" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">R</div>
-            <div class="rating-text">
-              <div class="rating-name">Rahul M. — Pune</div>
-              <div class="rating-comment">"Chicken salad hits different every time!"</div>
+          <div class="rrow">
+            <div class="rav" style="background:linear-gradient(135deg,#4facfe,#00f2fe);">R</div>
+            <div class="rtext">
+              <div class="rname">Rahul M. — Pune</div>
+              <div class="rcmt">"Chicken salad hits different every time!"</div>
             </div>
-            <div class="rating-stars">★★★★★</div>
+            <div class="rstars">★★★★★</div>
           </div>
-          <div class="rating-row">
-            <div class="rating-avatar" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">A</div>
-            <div class="rating-text">
-              <div class="rating-name">Ananya K. — Bangalore</div>
-              <div class="rating-comment">"Best subscription I've ever taken!"</div>
+          <div class="rrow">
+            <div class="rav" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">A</div>
+            <div class="rtext">
+              <div class="rname">Ananya K. — Bangalore</div>
+              <div class="rcmt">"Best subscription I've ever taken!"</div>
             </div>
-            <div class="rating-stars">★★★★☆</div>
+            <div class="rstars">★★★★☆</div>
           </div>
         </div>
       </div>
     </div>
   </div><!-- /hero-right -->
 
+</div><!-- /home-grid -->
 </div>
-</div>
-</div><!-- /home -->
+</div><!-- /#home -->
 
-<!-- ════════ MENU ════════ -->
+<!-- ════════ TODAY'S MENU ════════ -->
 <div id="menu" class="page">
-<div style="padding:52px 60px;">
+<div class="page-inner">
   <h1 style="font-family:'Montserrat',sans-serif;font-size:2.9rem;font-weight:900;text-align:center;margin-bottom:44px;">Today's Menu</h1>
   <div class="menu-grid">
-    <div class="menu-card reveal">
+    <div class="menu-card rev">
       <h3>Breakfast</h3>
-      <div class="food-type veg">🥬 VEG</div><div class="food-name">High Protein Muesli</div>
-      <div class="food-type nonveg">🍗 NON-VEG</div><div class="food-name">Chicken Egg White Scramble</div>
+      <div class="ftype veg">🥬 VEG</div><div class="fname">High Protein Muesli</div>
+      <div class="ftype nv">🍗 NON-VEG</div><div class="fname">Chicken Egg White Scramble</div>
     </div>
-    <div class="menu-card reveal" style="transition-delay:.1s">
+    <div class="menu-card rev" style="transition-delay:.1s">
       <h3>Brunch</h3>
-      <div class="food-type veg">🥬 VEG</div><div class="food-name">Paneer Veggie Bowl</div>
-      <div class="food-type nonveg">🍗 NON-VEG</div><div class="food-name">High Protein Chicken Salad</div>
+      <div class="ftype veg">🥬 VEG</div><div class="fname">Paneer Veggie Bowl</div>
+      <div class="ftype nv">🍗 NON-VEG</div><div class="fname">High Protein Chicken Salad</div>
     </div>
-    <div class="menu-card reveal" style="transition-delay:.2s">
+    <div class="menu-card rev" style="transition-delay:.2s">
       <h3>Lunch</h3>
-      <div class="food-type veg">🥬 VEG</div><div class="food-name">Grilled Paneer + Brown Rice</div>
-      <div class="food-type nonveg">🍗 NON-VEG</div><div class="food-name">Flame-Grilled Chicken + Brown Rice</div>
+      <div class="ftype veg">🥬 VEG</div><div class="fname">Grilled Paneer + Brown Rice</div>
+      <div class="ftype nv">🍗 NON-VEG</div><div class="fname">Flame-Grilled Chicken + Brown Rice</div>
     </div>
-    <div class="menu-card reveal" style="transition-delay:.3s">
+    <div class="menu-card rev" style="transition-delay:.3s">
       <h3>Dinner</h3>
-      <div class="food-type veg">🥬 VEG</div><div class="food-name">Multigrain Roti + Seasonal Sabzi</div>
-      <div class="food-type nonveg">🍗 NON-VEG</div><div class="food-name">Grilled Chicken + Multigrain Roti</div>
+      <div class="ftype veg">🥬 VEG</div><div class="fname">Multigrain Roti + Seasonal Sabzi</div>
+      <div class="ftype nv">🍗 NON-VEG</div><div class="fname">Grilled Chicken + Multigrain Roti</div>
     </div>
   </div>
 </div>
@@ -689,10 +894,10 @@ nav{
 
 <!-- ════════ PACKAGES ════════ -->
 <div id="packages" class="page">
-<div style="padding:52px 60px;">
+<div class="page-inner">
   <h1 style="font-family:'Montserrat',sans-serif;font-size:2.9rem;font-weight:900;text-align:center;margin-bottom:44px;">Packages</h1>
   <div class="pkg-grid">
-    <div class="pkg-card reveal">
+    <div class="pkg-card rev">
       <h2>VEG</h2>
       <ul>
         <li>Flame-Grilled Paneer Breast (Lean Protein)</li>
@@ -706,7 +911,7 @@ nav{
       </ul>
       <button class="btn-buy">BUY NOW</button>
     </div>
-    <div class="pkg-card reveal" style="transition-delay:.15s">
+    <div class="pkg-card rev" style="transition-delay:.15s">
       <h2>NONVEG</h2>
       <ul>
         <li>Flame-Grilled Chicken Breast (Lean Protein)</li>
@@ -721,44 +926,263 @@ nav{
       <button class="btn-buy">BUY NOW</button>
     </div>
   </div>
-  <p class="pkg-tagline reveal" style="transition-delay:.25s">
-    Commitment is a big step, so let's start with a blind date.<br>
-    Your first meal of the monthly subscription is on the house—no strings, just wings (or paneer)
-  </p>
+  <p class="pkg-tag rev" style="transition-delay:.3s">Commitment is a big step, so let's start with a blind date.<br>Your first meal of the monthly subscription is on the house—no strings, just wings (or paneer)</p>
 </div>
 </div>
 
-<!-- ════ DISCOVER MODAL ════ -->
+<!-- ════════ ABOUT US ════════ -->
+<div id="about" class="page">
+
+  <!-- Hero -->
+  <div class="about-hero">
+    <h1>We Are HealthyVibes 🌿</h1>
+    <p>Born from a simple belief — that eating healthy should feel like a joy, not a punishment. We cook real food, with real ingredients, for real results.</p>
+  </div>
+
+  <!-- Mission -->
+  <div class="about-mission">
+    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=700&auto=format&fit=crop" alt="Chef preparing healthy food">
+    <div class="about-mission-text rev">
+      <h2>Our <span>Mission</span></h2>
+      <p>At HealthyVibes, we believe that great health starts with great food. Our mission is to make nutritious, delicious meals accessible to everyone — without the stress of meal planning, calorie counting, or compromise on taste.</p>
+      <p>Founded in 2022 in Pune, we started as a small cloud kitchen serving 20 customers a day. Today we proudly nourish over 1,000 active subscribers across Maharashtra — and we're just getting started.</p>
+      <p>Every meal is crafted by certified nutritionists and prepared fresh each morning by our chefs. No preservatives. No shortcuts. Just pure, wholesome goodness delivered to your door.</p>
+    </div>
+  </div>
+
+  <!-- Values -->
+  <div class="about-values">
+    <h2>What We Stand For</h2>
+    <div class="values-grid">
+      <div class="val-card rev">
+        <span class="val-icon">🥗</span>
+        <h3>Freshness First</h3>
+        <p>Every ingredient is sourced fresh daily from local farms. No frozen, no processed — just farm-to-fork goodness in every bite.</p>
+      </div>
+      <div class="val-card rev" style="transition-delay:.12s">
+        <span class="val-icon">🔬</span>
+        <h3>Nutrition Science</h3>
+        <p>Our menus are designed by certified nutritionists to hit the perfect macros — balanced protein, healthy fats and complex carbs.</p>
+      </div>
+      <div class="val-card rev" style="transition-delay:.24s">
+        <span class="val-icon">🚴</span>
+        <h3>Active Lifestyle</h3>
+        <p>We fuel athletes, office warriors and everyday heroes alike. Whether you're bulking, cutting or simply eating clean — we've got you.</p>
+      </div>
+      <div class="val-card rev" style="transition-delay:.36s">
+        <span class="val-icon">🌱</span>
+        <h3>Sustainability</h3>
+        <p>Eco-friendly packaging, minimal food waste, and partnerships with local organic farms. We care about the planet as much as your plate.</p>
+      </div>
+      <div class="val-card rev" style="transition-delay:.48s">
+        <span class="val-icon">❤️</span>
+        <h3>Cooked With Love</h3>
+        <p>Our chefs put their heart into every meal. No assembly lines — just passionate cooking that you can actually taste in every mouthful.</p>
+      </div>
+      <div class="val-card rev" style="transition-delay:.6s">
+        <span class="val-icon">🏆</span>
+        <h3>Zero Compromise</h3>
+        <p>Taste and health are not opposites. We prove it every single day with food that is as delicious as it is nutritious.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Team -->
+  <div class="about-team">
+    <h2>Meet The Team</h2>
+    <div class="team-grid">
+      <div class="team-card rev">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#a8edea,#fed6e3);">👩‍🍳</div>
+        <h4>Meera Joshi</h4>
+        <div class="role">Head Chef & Co-Founder</div>
+        <p>Culinary Institute of India graduate with 12 years of restaurant experience. Meera ensures every meal tastes as good as it looks.</p>
+      </div>
+      <div class="team-card rev" style="transition-delay:.15s">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#fccb90,#d57eeb);">🧑‍💼</div>
+        <h4>Rohan Desai</h4>
+        <div class="role">CEO & Co-Founder</div>
+        <p>IIM Pune alumnus and fitness enthusiast who quit corporate life to build the meal subscription service he always wished existed.</p>
+      </div>
+      <div class="team-card rev" style="transition-delay:.3s">
+        <div class="team-avatar" style="background:linear-gradient(135deg,#43e97b,#38f9d7);">👩‍⚕️</div>
+        <h4>Dr. Anita Kulkarni</h4>
+        <div class="role">Chief Nutritionist</div>
+        <p>PhD in Nutritional Sciences from AIIMS. Anita designs all our meal plans to ensure optimal macros, micros and overall wellbeing.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats banner -->
+  <div class="about-stats">
+    <h2>HealthyVibes By The Numbers</h2>
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-num">1,000+</div>
+        <div class="stat-label">Active Subscribers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">4,500+</div>
+        <div class="stat-label">5-Star Ratings</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">50K+</div>
+        <div class="stat-label">Meals Delivered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">3</div>
+        <div class="stat-label">Cities Served</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Preservatives Used</div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /#about -->
+
+<!-- ════════ CONTACT ════════ -->
+<div id="contact" class="page">
+
+  <!-- Hero -->
+  <div class="contact-hero">
+    <h1>Get In Touch 👋</h1>
+    <p>Have a question, feedback or want to partner with us? We'd love to hear from you. Our team responds within 24 hours.</p>
+  </div>
+
+  <!-- Body -->
+  <div class="contact-body">
+
+    <!-- Info -->
+    <div class="contact-info">
+      <h2>Let's Connect</h2>
+
+      <div class="cinfo-item rev">
+        <div class="cinfo-icon yellow">📍</div>
+        <div class="cinfo-text">
+          <strong>Our Kitchen</strong>
+          <span>12, Green Valley Road, Kothrud,<br>Pune – 411038, Maharashtra</span>
+        </div>
+      </div>
+
+      <div class="cinfo-item rev" style="transition-delay:.1s">
+        <div class="cinfo-icon green">📞</div>
+        <div class="cinfo-text">
+          <strong>Call / WhatsApp</strong>
+          <span>+91 98765 43210<br>Mon – Sat, 8 AM – 9 PM</span>
+        </div>
+      </div>
+
+      <div class="cinfo-item rev" style="transition-delay:.2s">
+        <div class="cinfo-icon dark">✉️</div>
+        <div class="cinfo-text">
+          <strong>Email Us</strong>
+          <span>hello@healthyvibes.in<br>support@healthyvibes.in</span>
+        </div>
+      </div>
+
+      <div class="cinfo-item rev" style="transition-delay:.3s">
+        <div class="cinfo-icon" style="background:#E8F5E9;">🕐</div>
+        <div class="cinfo-text">
+          <strong>Delivery Hours</strong>
+          <span>Breakfast: 7–9 AM &nbsp;|&nbsp; Brunch: 10–11:30 AM<br>Lunch: 12:30–2 PM &nbsp;|&nbsp; Dinner: 7:30–9 PM</span>
+        </div>
+      </div>
+
+      <div class="rev" style="transition-delay:.4s">
+        <strong style="font-size:.88rem;color:#444;display:block;margin-bottom:10px;">Follow Us</strong>
+        <div class="social-row">
+          <button class="soc-btn" title="Instagram">📸</button>
+          <button class="soc-btn" title="Facebook">📘</button>
+          <button class="soc-btn" title="WhatsApp">💬</button>
+          <button class="soc-btn" title="YouTube">▶️</button>
+          <button class="soc-btn" title="Twitter/X">🐦</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="contact-form-wrap rev" style="transition-delay:.15s">
+      <h2>Send Us a Message</h2>
+      <p class="sub">Fill in the form and we'll get back to you within 24 hours.</p>
+
+      <div class="cfield">
+        <label>Your Name</label>
+        <input type="text" id="cName" placeholder="e.g. Priya Sharma">
+      </div>
+      <div class="cfield">
+        <label>Email Address</label>
+        <input type="email" id="cEmail" placeholder="your@email.com">
+      </div>
+      <div class="cfield">
+        <label>Phone (optional)</label>
+        <input type="tel" id="cPhone" placeholder="+91 XXXXX XXXXX">
+      </div>
+      <div class="cfield">
+        <label>Subject</label>
+        <select id="cSubject">
+          <option value="">Select a topic…</option>
+          <option>New Subscription Enquiry</option>
+          <option>Modify / Cancel Subscription</option>
+          <option>Delivery Issue</option>
+          <option>Feedback & Suggestions</option>
+          <option>Allergy / Dietary Requirements</option>
+          <option>Corporate / Bulk Orders</option>
+          <option>Partnership / Collaboration</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="cfield">
+        <label>Message</label>
+        <textarea id="cMessage" placeholder="Tell us how we can help…"></textarea>
+      </div>
+      <button class="btn-send" onclick="submitContact()">
+        Send Message
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 2L11 13M22 2L15 22l-4-9-9-4 20-7z"/></svg>
+      </button>
+
+      <div class="contact-success" id="contactSuccess">
+        <p>🎉 Message sent! We'll get back to you within 24 hours.</p>
+        <p style="font-size:.85rem;color:var(--green);font-weight:600;margin-top:4px;">Check your inbox for a confirmation email.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Map placeholder -->
+  <div class="map-strip">
+    📍 &nbsp; We're located in Kothrud, Pune — Come visit our kitchen!
+  </div>
+
+</div><!-- /#contact -->
+
+<!-- ════════ DISCOVER MODAL ════════ -->
 <div class="modal-overlay" id="discoverModal" onclick="bgClose(event,'discoverModal')">
   <div class="modal">
     <button class="modal-close" onclick="closeM('discoverModal')">✕</button>
     <h2>Monthly Packages</h2>
     <p class="sub">Every meal, every day — curated for your goals</p>
     <div class="modal-meals">
-      <div class="modal-meal-card">
-        <h4>🌅 Breakfast</h4>
-        <div class="modal-meal-item"><span class="badge veg">🥬 VEG</span><span class="name">High Protein Muesli</span></div>
-        <div class="modal-meal-item"><span class="badge nonveg">🍗 NON-VEG</span><span class="name">Chicken Egg White Scramble</span></div>
+      <div class="mmc"><h4>🌅 Breakfast</h4>
+        <div class="mmi"><span class="badge veg">🥬 VEG</span><span class="mname">High Protein Muesli</span></div>
+        <div class="mmi"><span class="badge nv">🍗 NON-VEG</span><span class="mname">Chicken Egg White Scramble</span></div>
       </div>
-      <div class="modal-meal-card">
-        <h4>☀️ Brunch</h4>
-        <div class="modal-meal-item"><span class="badge veg">🥬 VEG</span><span class="name">Paneer Veggie Bowl</span></div>
-        <div class="modal-meal-item"><span class="badge nonveg">🍗 NON-VEG</span><span class="name">High Protein Chicken Salad</span></div>
+      <div class="mmc"><h4>☀️ Brunch</h4>
+        <div class="mmi"><span class="badge veg">🥬 VEG</span><span class="mname">Paneer Veggie Bowl</span></div>
+        <div class="mmi"><span class="badge nv">🍗 NON-VEG</span><span class="mname">High Protein Chicken Salad</span></div>
       </div>
-      <div class="modal-meal-card">
-        <h4>🌞 Lunch</h4>
-        <div class="modal-meal-item"><span class="badge veg">🥬 VEG</span><span class="name">Grilled Paneer + Brown Rice</span></div>
-        <div class="modal-meal-item"><span class="badge nonveg">🍗 NON-VEG</span><span class="name">Flame-Grilled Chicken + Brown Rice</span></div>
+      <div class="mmc"><h4>🌞 Lunch</h4>
+        <div class="mmi"><span class="badge veg">🥬 VEG</span><span class="mname">Grilled Paneer + Brown Rice</span></div>
+        <div class="mmi"><span class="badge nv">🍗 NON-VEG</span><span class="mname">Flame-Grilled Chicken + Brown Rice</span></div>
       </div>
-      <div class="modal-meal-card">
-        <h4>🌙 Dinner</h4>
-        <div class="modal-meal-item"><span class="badge veg">🥬 VEG</span><span class="name">Multigrain Roti + Seasonal Sabzi</span></div>
-        <div class="modal-meal-item"><span class="badge nonveg">🍗 NON-VEG</span><span class="name">Grilled Chicken + Multigrain Roti</span></div>
+      <div class="mmc"><h4>🌙 Dinner</h4>
+        <div class="mmi"><span class="badge veg">🥬 VEG</span><span class="mname">Multigrain Roti + Seasonal Sabzi</span></div>
+        <div class="mmi"><span class="badge nv">🍗 NON-VEG</span><span class="mname">Grilled Chicken + Multigrain Roti</span></div>
       </div>
     </div>
     <div style="margin-top:26px;background:#F5F5E8;border-radius:16px;padding:18px 22px;">
       <p style="font-weight:700;color:var(--green);margin-bottom:8px;">📦 What's Included in Every Package</p>
-      <p style="font-size:.88rem;color:#555;line-height:1.78;">
+      <p style="font-size:.88rem;color:#555;line-height:1.75;">
         ✅ Fresh Garden Salad &nbsp;|&nbsp; ✅ Steamed Seasonal Vegetables<br>
         ✅ Probiotic Greek Yogurt &nbsp;|&nbsp; ✅ 40–60gm Protein Per Meal<br>
         💰 Price: ₹9,500/- Monthly Subscription
@@ -768,24 +1192,26 @@ nav{
   </div>
 </div>
 
-<!-- ════ AUTH MODAL ════ -->
+<!-- ════════ AUTH MODAL ════════ -->
 <div class="modal-overlay" id="authModal" onclick="bgClose(event,'authModal')">
   <div class="modal" style="max-width:430px;padding:40px 38px;">
     <button class="modal-close" onclick="closeM('authModal')">✕</button>
-    <div class="auth-tabs">
-      <button class="auth-tab active" id="tabLogin" onclick="switchTab('login')">Log In</button>
-      <button class="auth-tab" id="tabSignup" onclick="switchTab('signup')">Create Account</button>
+    <div class="atabs">
+      <button class="atab active" id="tabLogin" onclick="switchTab('login')">Log In</button>
+      <button class="atab" id="tabSignup" onclick="switchTab('signup')">Create Account</button>
     </div>
-    <div class="auth-form active" id="formLogin">
+    <!-- LOGIN -->
+    <div class="aform active" id="formLogin">
       <h3>Welcome back 👋</h3>
       <p class="hint">Log in to your HealthyVibes account</p>
       <div class="field"><label>Username</label><input type="text" id="loginUser" placeholder="Your username"></div>
       <div class="field"><label>Password</label><input type="password" id="loginPass" placeholder="Your password"></div>
       <button class="btn-auth" onclick="doLogin()">Log In</button>
       <div class="auth-msg" id="loginMsg"></div>
-      <div class="switch-link">No account? <span onclick="switchTab('signup')">Create one free</span></div>
+      <div class="slink">No account? <span onclick="switchTab('signup')">Create one free</span></div>
     </div>
-    <div class="auth-form" id="formSignup">
+    <!-- SIGNUP -->
+    <div class="aform" id="formSignup">
       <h3>Join HealthyVibes 🥗</h3>
       <p class="hint">Create your free account and start eating healthy</p>
       <div class="field"><label>Full Name</label><input type="text" id="signupName" placeholder="e.g. Priya Sharma"></div>
@@ -795,101 +1221,107 @@ nav{
       <div class="field"><label>Confirm Password</label><input type="password" id="signupPass2" placeholder="Repeat password"></div>
       <button class="btn-auth" onclick="doSignup()">Create Account</button>
       <div class="auth-msg" id="signupMsg"></div>
-      <div class="switch-link">Already have an account? <span onclick="switchTab('login')">Log in</span></div>
+      <div class="slink">Already have an account? <span onclick="switchTab('login')">Log in</span></div>
     </div>
   </div>
 </div>
 
 <script>
-/* ═══ FLOATING PRODUCE PARTICLES ═══ */
-(function(){
-  const icons=['🥑','🥦','🍋','🫐','🍓','🥕','🌿','🍃','🥬','🌱','🍇','🥝','🫑','🥗','🌾','🫚','🍏','🫛'];
-  const c=document.getElementById('particles');
-  for(let i=0;i<26;i++){
-    const el=document.createElement('div');
-    el.className='particle';
-    el.textContent=icons[i%icons.length];
-    const sz=(0.9+Math.random()*1.4).toFixed(2);
-    el.style.cssText=`left:${(Math.random()*100).toFixed(1)}%;`+
-      `animation-duration:${(9+Math.random()*16).toFixed(1)}s;`+
-      `animation-delay:${(Math.random()*14).toFixed(1)}s;`+
-      `font-size:${sz}rem;`;
-    c.appendChild(el);
-  }
-})();
+/* ═══════════════════════════
+   🌿 FLOATING PRODUCE PARTICLES
+═══════════════════════════ */
+const PRODUCE = ['🥦','🥕','🍋','🥑','🍅','🌿','🥬','🫑','🍇','🍓','🌱'];
+const pCont = document.getElementById('particles');
+for(let i=0;i<18;i++){
+  const el=document.createElement('div');
+  el.className='pt';
+  el.textContent=PRODUCE[i%PRODUCE.length];
+  const size=.7+Math.random()*.7;
+  el.style.cssText=`
+    left:${Math.random()*100}%;
+    font-size:${size}rem;
+    animation-duration:${14+Math.random()*18}s;
+    animation-delay:${Math.random()*-20}s;
+  `;
+  pCont.appendChild(el);
+}
 
-/* ═══ LEAF CURSOR TRAIL ═══ */
-let lastLeaf=0;
+/* ═══════════════════════════
+   🍃 LEAF CURSOR TRAIL
+═══════════════════════════ */
+const LEAVES=['🌿','🍃','🌱','🍀'];
+let leafThrottle=0;
 document.addEventListener('mousemove',e=>{
   const now=Date.now();
-  if(now-lastLeaf<130) return;
-  lastLeaf=now;
+  if(now-leafThrottle<110)return;
+  leafThrottle=now;
   const el=document.createElement('div');
-  el.className='leaf-trail';
-  el.textContent=['🌿','🍃','🌱','🍀'][Math.floor(Math.random()*4)];
+  el.className='leaf';
+  el.textContent=LEAVES[Math.floor(Math.random()*LEAVES.length)];
   el.style.left=(e.clientX-8)+'px';
   el.style.top=(e.clientY-8)+'px';
   document.body.appendChild(el);
-  setTimeout(()=>el.remove(),800);
+  setTimeout(()=>el.remove(),750);
 });
 
-/* ═══ RATINGS STAGGER ═══ */
+/* ═══════════════════════════
+   SCROLL REVEAL
+═══════════════════════════ */
+const revIO=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis');});
+},{threshold:.12});
+function observeRevs(root){
+  (root||document).querySelectorAll('.rev').forEach(el=>revIO.observe(el));
+}
+observeRevs();
+
+/* ═══════════════════════════
+   RATINGS STAGGER ANIMATE
+═══════════════════════════ */
 function triggerRatings(){
-  document.querySelectorAll('.rating-row').forEach((r,i)=>{
-    r.classList.remove('visible');
-    setTimeout(()=>r.classList.add('visible'), 500+i*230);
+  document.querySelectorAll('.rrow').forEach((r,i)=>{
+    r.classList.remove('vis');
+    setTimeout(()=>r.classList.add('vis'),480+i*220);
   });
 }
 triggerRatings();
 
-/* ═══ SCROLL REVEAL (IntersectionObserver) ═══ */
-const revIO=new IntersectionObserver(entries=>{
-  entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-},{threshold:.1});
-function observeReveals(root){
-  (root||document).querySelectorAll('.reveal').forEach(el=>revIO.observe(el));
-}
-observeReveals();
-
-/* ═══ MEAL DATA ═══ */
+/* ═══════════════════════════
+   MEAL DATA
+═══════════════════════════ */
 const meals=[
-  {name:'High Protein Muesli',               type:'veg',   meal:'Breakfast',cal:634,protein:'40gm',fat:'18gm',carbs:'220gm',emoji:'🥣'},
-  {name:'Chicken Egg White Scramble',         type:'nonveg',meal:'Breakfast',cal:520,protein:'48gm',fat:'14gm',carbs:'160gm',emoji:'🍳'},
-  {name:'Paneer Veggie Bowl',                 type:'veg',   meal:'Brunch',   cal:420,protein:'35gm',fat:'22gm',carbs:'180gm',emoji:'🥗'},
-  {name:'High Protein Chicken Salad',         type:'nonveg',meal:'Brunch',   cal:450,protein:'50gm',fat:'30gm',carbs:'200gm',emoji:'🥙'},
-  {name:'Grilled Paneer + Brown Rice',        type:'veg',   meal:'Lunch',    cal:580,protein:'42gm',fat:'20gm',carbs:'240gm',emoji:'🍚'},
-  {name:'Flame-Grilled Chicken + Brown Rice', type:'nonveg',meal:'Lunch',    cal:634,protein:'55gm',fat:'25gm',carbs:'210gm',emoji:'🍗'},
-  {name:'Multigrain Roti + Seasonal Sabzi',   type:'veg',   meal:'Dinner',   cal:480,protein:'38gm',fat:'16gm',carbs:'200gm',emoji:'🫓'},
-  {name:'Grilled Chicken + Multigrain Roti',  type:'nonveg',meal:'Dinner',   cal:535,protein:'45gm',fat:'22gm',carbs:'180gm',emoji:'🍛'},
+  {n:'High Protein Muesli',         t:'veg', m:'Breakfast',c:634,p:'40gm',f:'18gm',cb:'220gm',e:'🥣'},
+  {n:'Chicken Egg White Scramble',  t:'nv',  m:'Breakfast',c:520,p:'48gm',f:'14gm',cb:'160gm',e:'🍳'},
+  {n:'Paneer Veggie Bowl',          t:'veg', m:'Brunch',   c:420,p:'35gm',f:'22gm',cb:'180gm',e:'🥗'},
+  {n:'High Protein Chicken Salad',  t:'nv',  m:'Brunch',   c:450,p:'50gm',f:'30gm',cb:'200gm',e:'🥙'},
+  {n:'Grilled Paneer + Brown Rice', t:'veg', m:'Lunch',    c:580,p:'42gm',f:'20gm',cb:'240gm',e:'🍚'},
+  {n:'Flame-Grilled Chicken + Brown Rice',t:'nv',m:'Lunch',c:634,p:'55gm',f:'25gm',cb:'210gm',e:'🍗'},
+  {n:'Multigrain Roti + Seasonal Sabzi',t:'veg',m:'Dinner',c:480,p:'38gm',f:'16gm',cb:'200gm',e:'🫓'},
+  {n:'Grilled Chicken + Multigrain Roti',t:'nv',m:'Dinner',c:535,p:'45gm',f:'22gm',cb:'180gm',e:'🍛'},
 ];
 const ORDER=['Breakfast','Brunch','Lunch','Dinner'];
 
-function handleSearchFocus(){
-  spawnVeggieBurst();
-  handleSearch();
-}
+function onSearchFocus(){spawnBurst();handleSearch();}
 function handleSearch(){
   const q=document.getElementById('searchInput').value.trim().toLowerCase();
   const dd=document.getElementById('searchDropdown');
   const list=q===''?meals:meals.filter(m=>
-    m.name.toLowerCase().includes(q)||m.meal.toLowerCase().includes(q)||m.type.includes(q));
+    m.n.toLowerCase().includes(q)||m.m.toLowerCase().includes(q)||m.t.includes(q));
   if(!list.length){
-    dd.innerHTML='<div class="no-result">No meals found 🍽️ Try "paneer", "chicken" or "brunch"</div>';
+    dd.innerHTML='<div class="no-res">No meals found 🍽️ Try "paneer", "chicken" or "brunch"</div>';
     dd.classList.add('open');return;
   }
   let html='';
   ORDER.forEach(t=>{
-    const g=list.filter(r=>r.meal===t);
+    const g=list.filter(r=>r.m===t);
     if(!g.length)return;
-    html+=`<div class="search-group-title">${t}</div>`;
+    html+=`<div class="sg-title">${t}</div>`;
     g.forEach(m=>{
-      html+=`<div class="search-item" onclick="pickMeal('${m.name.replace(/'/g,"\\'")}')">
-        <span class="si-emoji">${m.emoji}</span>
-        <div style="flex:1">
-          <div class="si-name">${m.name}</div>
-          <div class="si-meta">${m.cal} kcal · Protein ${m.protein} · Fat ${m.fat} · Carbs ${m.carbs}</div>
-        </div>
-        <span class="si-badge ${m.type}">${m.type==='veg'?'🥬 VEG':'🍗 NON-VEG'}</span>
+      html+=`<div class="si" onclick="pickMeal('${m.n.replace(/'/g,"\\'")}')">
+        <span class="si-e">${m.e}</span>
+        <div style="flex:1"><div class="si-n">${m.n}</div>
+        <div class="si-m">${m.c} kcal · Protein ${m.p} · Fat ${m.f} · Carbs ${m.cb}</div></div>
+        <span class="si-b ${m.t}">${m.t==='veg'?'🥬 VEG':'🍗 NON-VEG'}</span>
       </div>`;
     });
   });
@@ -898,67 +1330,87 @@ function handleSearch(){
 function pickMeal(n){
   document.getElementById('searchInput').value=n;
   document.getElementById('searchDropdown').classList.remove('open');
-  spawnVeggieBurst();
+  spawnBurst();
 }
 document.addEventListener('click',e=>{
   if(!document.getElementById('searchWrap').contains(e.target))
     document.getElementById('searchDropdown').classList.remove('open');
 });
 
-/* veggie burst near search */
-function spawnVeggieBurst(){
+/* veggie burst */
+function spawnBurst(){
   const bar=document.querySelector('.search-bar');
   if(!bar)return;
   const r=bar.getBoundingClientRect();
   ['🥦','🥕','🍋','🥑'].forEach((v,i)=>{
     setTimeout(()=>{
       const el=document.createElement('div');
-      el.className='veggie-burst';
-      el.textContent=v;
-      el.style.left=(r.left + 40 + i*28)+'px';
-      el.style.top=(r.top-8)+'px';
+      el.className='vburst';el.textContent=v;
+      el.style.left=(r.left+40+i*30)+'px';
+      el.style.top=(r.top-6)+'px';
       document.body.appendChild(el);
       setTimeout(()=>el.remove(),700);
-    },i*80);
+    },i*75);
   });
 }
 
-/* ═══ PAGE NAV ═══ */
+/* ═══════════════════════════
+   MOBILE MENU
+═══════════════════════════ */
+function toggleMobileMenu(){
+  const hb=document.getElementById('hamburger');
+  const mm=document.getElementById('mobileMenu');
+  hb.classList.toggle('open');
+  mm.classList.toggle('open');
+  document.body.style.overflow=mm.classList.contains('open')?'hidden':'';
+}
+function closeMobileMenu(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.body.style.overflow='';
+}
+
+/* ═══════════════════════════
+   PAGE NAVIGATION
+═══════════════════════════ */
 function showPage(id){
+  closeMobileMenu();
+  // progress bar flash
+  const pb=document.getElementById('pbar');
+  pb.style.width='60%';
+  setTimeout(()=>{pb.style.width='100%';},200);
+  setTimeout(()=>{pb.style.transition='none';pb.style.width='0%';setTimeout(()=>pb.style.transition='width .4s ease',50);},600);
+
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active','page-enter'));
   const pg=document.getElementById(id);
   pg.classList.add('active');
   requestAnimationFrame(()=>pg.classList.add('page-enter'));
   window.scrollTo(0,0);
   setTimeout(()=>{
-    observeReveals(pg);
-    if(id==='home') triggerRatings();
+    observeRevs(pg);
+    if(id==='home')triggerRatings();
   },60);
 }
 
-/* ═══ CALORIE CARDS ═══ */
+/* ═══════════════════════════
+   CALORIE CARD TOGGLE
+═══════════════════════════ */
 function toggleMeal(card){
-  document.querySelectorAll('.meal-card').forEach(c=>c.classList.remove('active'));
+  document.querySelectorAll('.mc').forEach(c=>c.classList.remove('active'));
   card.classList.add('active');
 }
 
-/* ═══ MODALS ═══ */
-function openDiscover(){
-  document.getElementById('discoverModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function openAuth(tab){
-  switchTab(tab);
-  document.getElementById('authModal').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closeM(id){
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow='';
-}
+/* ═══════════════════════════
+   MODALS
+═══════════════════════════ */
+function openDiscover(){document.getElementById('discoverModal').classList.add('open');document.body.style.overflow='hidden';}
+function openAuth(tab){switchTab(tab);document.getElementById('authModal').classList.add('open');document.body.style.overflow='hidden';}
+function closeM(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
 function bgClose(e,id){if(e.target===document.getElementById(id))closeM(id);}
 
-/* ═══ AUTH TABS ═══ */
+/* ═══════════════════════════
+   AUTH
+═══════════════════════════ */
 function switchTab(t){
   ['login','signup'].forEach(x=>{
     document.getElementById('tab'+cap(x)).classList.toggle('active',x===t);
@@ -969,32 +1421,31 @@ function switchTab(t){
 }
 function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
 
-/* ═══ IN-MEMORY USERS ═══ */
 const users={};
 function doSignup(){
-  const name =document.getElementById('signupName').value.trim();
-  const user =document.getElementById('signupUser').value.trim();
+  const name=document.getElementById('signupName').value.trim();
+  const user=document.getElementById('signupUser').value.trim();
   const email=document.getElementById('signupEmail').value.trim();
-  const pass =document.getElementById('signupPass').value;
+  const pass=document.getElementById('signupPass').value;
   const pass2=document.getElementById('signupPass2').value;
-  const msg  =document.getElementById('signupMsg');
-  if(!name||!user||!email||!pass||!pass2) return setMsg(msg,'error','Please fill in all fields.');
-  if(!/\S+@\S+\.\S+/.test(email))         return setMsg(msg,'error','Enter a valid email address.');
-  if(pass.length<6)                        return setMsg(msg,'error','Password must be at least 6 characters.');
-  if(pass!==pass2)                         return setMsg(msg,'error','Passwords do not match.');
-  if(users[user])                          return setMsg(msg,'error','Username already taken. Try another.');
+  const msg=document.getElementById('signupMsg');
+  if(!name||!user||!email||!pass||!pass2) return setMsg(msg,'err','Please fill in all fields.');
+  if(!/\S+@\S+\.\S+/.test(email))         return setMsg(msg,'err','Enter a valid email address.');
+  if(pass.length<6)                        return setMsg(msg,'err','Password must be at least 6 characters.');
+  if(pass!==pass2)                         return setMsg(msg,'err','Passwords do not match.');
+  if(users[user])                          return setMsg(msg,'err','Username already taken. Try another.');
   users[user]={name,email,pass};
-  setMsg(msg,'success','✅ Account created! Welcome, '+name+'!');
+  setMsg(msg,'ok','✅ Account created! Welcome, '+name+'!');
   setTimeout(()=>loginUser(user,users[user].name),1000);
 }
 function doLogin(){
   const user=document.getElementById('loginUser').value.trim();
   const pass=document.getElementById('loginPass').value;
-  const msg =document.getElementById('loginMsg');
-  if(!user||!pass)           return setMsg(msg,'error','Please enter your username and password.');
-  if(!users[user])           return setMsg(msg,'error','Account not found. Please sign up first.');
-  if(users[user].pass!==pass)return setMsg(msg,'error','Incorrect password. Try again.');
-  setMsg(msg,'success','✅ Welcome back, '+users[user].name+'!');
+  const msg=document.getElementById('loginMsg');
+  if(!user||!pass)            return setMsg(msg,'err','Please enter your username and password.');
+  if(!users[user])            return setMsg(msg,'err','Account not found. Please sign up first.');
+  if(users[user].pass!==pass) return setMsg(msg,'err','Incorrect password. Try again.');
+  setMsg(msg,'ok','✅ Welcome back, '+users[user].name+'!');
   setTimeout(()=>loginUser(user,users[user].name),800);
 }
 function setMsg(el,cls,txt){el.className='auth-msg '+cls;el.textContent=txt;}
@@ -1012,6 +1463,28 @@ function logOut(){
   const btn=document.getElementById('navSignupBtn');
   btn.textContent='Sign Up';
   btn.onclick=()=>openAuth('signup');
+}
+
+/* ═══════════════════════════
+   CONTACT FORM
+═══════════════════════════ */
+function submitContact(){
+  const name=document.getElementById('cName').value.trim();
+  const email=document.getElementById('cEmail').value.trim();
+  const subject=document.getElementById('cSubject').value;
+  const msg=document.getElementById('cMessage').value.trim();
+  if(!name||!email||!subject||!msg){
+    alert('Please fill in your name, email, subject and message.');return;
+  }
+  if(!/\S+@\S+\.\S+/.test(email)){alert('Please enter a valid email.');return;}
+  // Clear & show success
+  document.getElementById('cName').value='';
+  document.getElementById('cEmail').value='';
+  document.getElementById('cPhone').value='';
+  document.getElementById('cSubject').value='';
+  document.getElementById('cMessage').value='';
+  document.getElementById('contactSuccess').classList.add('show');
+  setTimeout(()=>document.getElementById('contactSuccess').classList.remove('show'),6000);
 }
 </script>
 </body>
